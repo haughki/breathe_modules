@@ -1,10 +1,10 @@
 import logging
 logging.basicConfig()
 
-from my_commands.imports import *
+from commands.imports import *
 
 modules = {
-    "my_commands": {
+    "commands": {
         "apps": [],
         "core": [
             "keys",

@@ -1,5 +1,5 @@
-from my_commands.imports import *
-from my_commands.utils import character
+from commands.imports import *
+from commands.utils import character
 
 
 

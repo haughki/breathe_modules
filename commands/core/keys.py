@@ -1,4 +1,4 @@
-from my_commands.imports import *
+from commands.imports import *
 
 Breathe.add_commands(
     context=None,
