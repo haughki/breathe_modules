@@ -1,0 +1,7 @@
+dragonfly2
+dfly-breathe
+six
+future
+wxpython
+pywin32
+setuptools
