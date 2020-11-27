@@ -1,5 +1,5 @@
 from commands.imports import *
-from commands.utils import character
+from supporting import character
 
 
 

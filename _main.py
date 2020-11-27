@@ -9,6 +9,7 @@ modules = {
         "core": [
             "keys",
             "editing_commands",
+            "window_control",
         ],
         "languages": [],
     }
