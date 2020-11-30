@@ -1,3 +1,7 @@
+# import pydevd_pycharm
+# pydevd_pycharm.settrace('localhost', port=8282, stdoutToServer=True, stderrToServer=True)
+
+
 from commands.imports import *
 from supporting import character
 

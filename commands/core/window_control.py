@@ -3,13 +3,14 @@ from supporting import utils
 import time, logging
 rule_log = logging.getLogger("rule")
 
+"""
+Tries to match windows using "focus" <app_name> [<title_fragment>]. The dict below correlates the spoken app_name key
+with an (<exe name>, <window title hint>). The hint is hard-coded, whereas the title_fragment is dictation, dictation
+which let's you choose, in real-time, between multiple windows with the same process name. If your app_name command
+is the same as the exe_name, you can leave out the exe_name.
 
-# tries to match windows using "focus" <app_name> [<title_fragment>].  The dict below correlates the spoken app_name key
-# with an (<exe name>, <window title hint>).  The hint is hard-coded, whereas the title_fragment is dictation, dictation
-# which let's you choose, in real-time, between multiple windows with the same process name. If your app_name command
-# is the same as the exe_name, you can leave out the exe_name.
-
-# To see data about the current available windows (including the actual names to use here), try "print windows".
+To see data about the current available windows (including the actual names to use here), try "print windows".
+"""
 window_map = {
         "NatLink": {"exe_name": "natspeak", "title_hint": "messages from Natlink"},
         "idea": {"exe_name": "", "title_hint": ""},
@@ -43,12 +44,12 @@ config.lang.focus_win      = Item("focus <win_selector>",
                                   doc="Bring a named window to the foreground. 'focus chrome'")
 config.lang.focus_title    = Item("focus title <text>",
                                   doc="Bring a window with a given title (or title fraction) to the foreground. 'focus chrome google maps'")
-config.lang.translate_win  = Item("place <win_selector> (<position> [on <mon_selector>] | on <mon_selector>)",
-                                  doc="Move a window to a monitor or to a location on a monitor. 'place chrome on 2' or 'place chrome top on 2'")
+config.lang.place_win      = Item("place <win_selector> (<position> [on <mon_selector>] | on <mon_selector>)",
+                              doc="Move a window to a monitor or to a location on a monitor. 'place chrome on 2' or 'place chrome top on 2'")
 config.lang.nudge_win      = Item("nudge <win_selector> <direction> [<nudge_multiplier>]",
                                   doc="Nudge a window in a direction. 'nudge chrome right 6'")
 config.lang.resize_win     = Item("resize <win_selector> [from] <position> [to] <position> [on <mon_selector>]",
-                                  doc="Move and resize a window. 'place chrome top right on 2'")
+                                  doc="Move and resize a window. 'resize chrome top right on 2'")
 config.lang.stretch_win    = Item("stretch <win_selector> [to] <position>",
                                   doc="Stretch a window in a direction. 'stretch chrome left'")
 config.lang.place_win_fraction = Item("place <win_selector> <position> <screen_fraction>",
@@ -204,8 +205,11 @@ class MonSelectorRule(CompoundRule):
 mon_selector = RuleRef(MonSelectorRule(), name="mon_selector")
 
 
-
-
+"""
+It's unclear to me exactly how this grid thing works. I tried a variety of different commands to try and understand,
+but I still don't quite get it. I never tried to use commands with the "grid", but I'm just going to leave it here for now
+in case I want to try to do something with it later.
+"""
 class GridRule(Rule):
     sections = config.settings.grid
     def __init__(self):
@@ -235,12 +239,16 @@ horz_all     = Alternative([horz_expl, horz_grid], name="horz_all")
 vert_expl    = Alternative([vert_top,  vert_bottom], name="vert_expl")
 vert_all     = Alternative([vert_expl, vert_grid], name="vert_all")
 
+# I've added the commands in comments as I think they should be. They don't work as expected.
+# I did some hacking on the place_win() function, and maybe that's why it doesn't work properly.
+# But, at this point, I don't really use any of the position commands, so I'm not worried about it;
+# just leaving it here for now in case I want to make it work at some point.
 position_element = Compound(
-    spec="   <horz_expl>"              # 1D, horizontal
-         " | <vert_expl>"              # 1D, vertical
-         " | <horz_all> <vert_all>"    # 2D, horizontal-vertical
-         " | <vert_expl> <horz_all>"   # 2D, vertical-horizontal
-         " | <vert_all> <horz_expl>",  # 2D, vertical-horizontal
+    spec="   <horz_expl>"              # 1D, horizontal             (left | right)  OR
+         " | <vert_expl>"              # 1D, vertical               (top | bottom)  OR
+         " | <horz_all> <vert_all>"    # 2D, horizontal-vertical    ((left | right) | 1- 10) ((top | bottom) | 1-10)  OR
+         " | <vert_expl> <horz_all>"   # 2D, vertical-horizontal    (top | bottom) ((left | right) | 1- 10)  OR
+         " | <vert_all> <horz_expl>",  # 2D, vertical-horizontal    ((top | bottom) | 1-10) (left | right)
     extras=[horz_expl, horz_all, vert_expl, vert_all],
 )
 position_rule = Rule(
@@ -251,9 +259,8 @@ position_rule = Rule(
 position = RuleRef(position_rule, name="position")
 
 
-#---------------------------------------------------------------------------
-
-def translate_win(_node, win_selector, position=None, mon_selector=None):
+""" Place a Window On a Monitor """
+def place_win(_node, win_selector, position=None, mon_selector=None):
     node = _node
     # Determine which window to place on which monitor.
     window = win_selector
@@ -297,7 +304,7 @@ def translate_win(_node, win_selector, position=None, mon_selector=None):
         # know anything about _which_ monitor we started on, nor do we know anything (dimensions, etc.) about that monitor.
         # Without this information, it seems to be impossible (?) to "robustly" calculate the destination horizontal we want. By
         # "robustly", I mean to calculate the horizontal for all possible combinations of monitors of different sizes. For example,
-        # if monitor one was 800x600, and monitor two was 1920 x 1200 (or possibly vice versa, or three monitors, all of different
+        # if monitor one was 800 x 600, and monitor two was 1920 x 1200 (or possibly vice versa, or three monitors, all of different
         # sizes, etc.), it doesn't seem possible to calculate the horizontal that I want; that is, the same horizontal as a window
         # had before the move.
         #
@@ -338,7 +345,7 @@ def translate_win(_node, win_selector, position=None, mon_selector=None):
     # print "dx: " + str(dx)
     # print "dy: " + str(dy)
 
-    # Translate and move window.
+    # "Translate" and move window.
     # dx and dy represent the distance values to move the window from its current position to its new position.
     # So, for example, -10, 20 would move the window 10 pixels left and 20 pixels up.
     # print "*******"
@@ -348,7 +355,7 @@ def translate_win(_node, win_selector, position=None, mon_selector=None):
     window.move(pos)
 
 
-#---------------------------------------------------------------------------
+""" Nudge """
 
 nudge_increment = 20
 direction_left    = Compound(config.lang.left,   name="direction_left", value=("x", -nudge_increment))
@@ -363,7 +370,6 @@ direction_up_right = Sequence([direction_up, direction_right])
 direction_down_left = Sequence([direction_down, direction_left])
 direction_down_right = Sequence([direction_down, direction_right])
 nudge_diagonal = Alternative([direction_up_left, direction_up_right, direction_down_left, direction_down_right], name="nudge_diagonal")
-
 
 direction_element = Compound(
     spec="   <nudge_basic>"
@@ -505,13 +511,11 @@ def fraction_win(_node, win_selector, screen_fraction):
 
 
 
-
-
 Breathe.add_commands(
     None,
     {
         config.lang.focus_win: Function(focus_win),
-        config.lang.translate_win: Function(translate_win),
+        config.lang.place_win: Function(place_win),
         config.lang.nudge_win: Function(nudge_win),
         config.lang.resize_win: Function(resize_win),
         config.lang.stretch_win: Function(stretch_win),

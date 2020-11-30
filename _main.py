@@ -7,11 +7,16 @@ modules = {
     "commands": {
         "apps": [],
         "core": [
-            "keys",
             "editing_commands",
+            "put_string_commands",
+            "scan_line",
+            "text_formatting",
             "window_control",
         ],
-        "languages": [],
+        "languages": [
+            "java",
+            "python",
+        ],
     }
 }
 
