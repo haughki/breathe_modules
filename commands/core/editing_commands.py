@@ -18,14 +18,17 @@ letters = List("letters_list", [
 letters_reference = ListRef("letters_ref", letters)
 
 
+def mark_block(n, m):
+    Key("shift:down").execute()
+    Key("down:" + str(m - n + 1)).execute()
+
+
 
 #---------------------------------------------------------------------------
 # Here we globally defined the release action which releases all modifier-keys used within this grammar.  It is defined here
 #  because this functionality is used in many different places. Note that it is harmless to release ("...:up") a key multiple
 #  times or when that key is not held down at all.
 release = Key("shift:up, ctrl:up, alt:up")
-
-
 
 Breathe.add_commands(
     None,
@@ -95,7 +98,10 @@ Breathe.add_commands(
         character.LBRACKET    + " [<n>]": Key("lbracket:%(n)d"),
         character.RBRACKET    + " [<n>]": Key("rbracket:%(n)d"),
         character.LPAREN      + " [<n>]": Key("lparen:%(n)d"),
+        character.LPAREN2     + " [<n>]": Key("lparen:%(n)d"),
+        character.LPAREN3     + " [<n>]": Key("lparen:%(n)d"),
         character.RPAREN      + " [<n>]": Key("rparen:%(n)d"),
+        character.RPAREN2     + " [<n>]": Key("rparen:%(n)d"),
 
         ### ALPHABET
         character.A           + " [<n>]": Key("a:%(n)d"),
@@ -164,14 +170,14 @@ Breathe.add_commands(
         "wipe [<n>]": Key("end, home:2, s-down:%(n)d, del"), # del lines down
         "wipe up [<n>]": release + Key("end, home:2, s-up:%(n)d, s-home, del"), # del lines up
         "clear line": Key("end, home:2, s-end, del"), # del everything on the line except the newline
-        "strip [end]": release + Key("s-end, del"), # del from cursor to line end
-        "grab [end]": release + Key("s-end, c-c"), # copy from cursor to line end
-        "cut end": release + Key("s-end, c-x"), # cut from cursor to line end
-        "strip head": release + Key("s-home, del"), # del from cursor to line home
-        "grab head": release + Key("s-home, c-c"), # copy from cursor to line home
-        "cut head": release + Key("s-home, c-x"), # cut from cursor to line home
-        "nab [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
-        "swipe [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
+        "end chuck": release + Key("s-end, del"), # del from cursor to line end
+        "end copy": release + Key("s-end, c-c"), # copy from cursor to line end
+        "end cut": release + Key("s-end, c-x"), # cut from cursor to line end
+        "head chuck": release + Key("s-home, del"), # del from cursor to line home
+        "head copy": release + Key("s-home, c-c"), # copy from cursor to line home
+        "head cut": release + Key("s-home, c-x"), # cut from cursor to line home
+        "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
+        "(line cut [<n>]) | (swipe [<n>])": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
         "dupe": release + Key("end, home, s-end, c-c, end, enter, c-v"), # duplicate lines down
 
         ### words
@@ -197,6 +203,7 @@ Breathe.add_commands(
         "(mash | sky <letters_ref>)": Function(convert_to_upper),
         "mark": Key("shift:down"),
         "mark up": Key("shift:up"),
+        "mark [from] <n> to <m>": Function(mark_block),
         "release": release,
 
         ### other
@@ -218,11 +225,13 @@ Breathe.add_commands(
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),
     },
     extras = [
-        IntegerRef("n", 1, 100),
+        IntegerRef("n", 1, 10000),
+        IntegerRef("m", 1, 10000),
         Dictation("text"),
         letters_reference,  # see definition of 'convert_to_upper()'
     ],
     defaults = {
         "n": 1,
+        "m": 1,
     }
 )

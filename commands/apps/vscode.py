@@ -4,7 +4,7 @@ Licensed under the LGPL3.
 
 """
 
-from dragonfly import Grammar, MappingRule, Dictation, Integer, Key, Text, IntegerRef, AppContext, Function
+from commands.imports import *
 from supporting import utils
 
 def getFile(text=None):
@@ -20,7 +20,8 @@ def printNumber(w, x=None, y=None, z=None):
     number = utils.buildNumber(w, x, y, z)
     Text(number).execute()
 
-class VsCodeMapping(MappingRule):
+Breathe.add_commands(
+    context = AppContext(executable='code'),
     mapping = {
         # misc
         "run app": Key("ca-n"),
@@ -71,7 +72,7 @@ class VsCodeMapping(MappingRule):
         # "debug variable": Text("- debug: var="),
         # "debug message": Text("- debug: \n\t\tmsg: "),
         # "extract variable": Text("\"{{}}\"") + Key("left:3")
-    }
+    },
 
     extras = [
         Integer("t", 1, 50),
@@ -81,17 +82,8 @@ class VsCodeMapping(MappingRule):
         Integer("x", 0, 10),
         Integer("y", 0, 10),
         Integer("z", 0, 10)
-    ]
+    ],
     defaults = {
         "t": 1,
     }
-
-
-context = AppContext(executable='code')
-vscode_grammar = Grammar('VsCode', context=context)
-vscode_grammar.add_rule(VsCodeMapping())
-vscode_grammar.load()
-
-def unload():
-    global vscode_grammar
-    vscode_grammar = utils.unloadHelper(vscode_grammar, __name__)
+)

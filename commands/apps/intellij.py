@@ -1,13 +1,4 @@
-"""A command module for Dragonfly, for controlling IntelliJ IDEA-based IDEs.
-
-taken from nirvdrum"s module at:
-https://github.com/dictation-toolbox/dragonfly-scripts/blob/master/_app_intellij.py
------------------------------------------------------------------------------
-Licensed under the LGPL3.
-
-"""
-from dragonfly import Function
-from dragonfly import Grammar, MappingRule, Dictation, Integer, Key, Text, IntegerRef, AppContext
+from commands.imports import *
 from supporting import utils
 
 def getFile(text=None):
@@ -38,7 +29,8 @@ def toggleFullScreen():
         Key("cas-x").execute()    # "hide all tool windows"
         is_full_screen = True
 
-class CommandRule(MappingRule):
+Breathe.add_commands(
+    context=AppContext(executable="idea64"),
     mapping = {
         # Code execution.
         "run app": Key("s-f10"),
@@ -54,12 +46,14 @@ class CommandRule(MappingRule):
         "(keep running | resume)": Key("f9"),
 
         # Code navigation.
-        "(go to | show) class": Key("c-n"),
         "get file [<text>]": Function(getFile),  # "Navigate > File..."
-        "([go to | show] declaration | dive | plunge)": Key("c-b"),
-        "[go to | show] implementation": Key("ca-b"),
-        "[go to | show] super": Key("c-u"),
+        "go to class": Key("c-n"),
+        "go to declaration": Key("c-b"),
+        "go to implementation": Key("ca-b"),
+        "go to super": Key("c-u"),
+
         "float [file] structure": Key("c-f12"),
+        "[go to | show] sidebar": Key("a-1"),
         "[go to | show] structure": Key("a-7"),
         "[go to | show] hierarchy": Key("a-8"),
         "[go to | show] version control": Key("a-9"),
@@ -72,7 +66,7 @@ class CommandRule(MappingRule):
         "collapse": Key("c-npsub"),
 
         # Project settings.
-        "(go to | toggle | hide | close | open | show) (project [window] | side (panel | bar))": Key("a-1"),
+        # note: you can focus the editor from anywhere by using 'fly' (escape)
         "[go to | show] module settings": Key("f4"),
         "[go to | show] [project] settings": Key("cas-s"),
         "[go to | show] Global settings": Key("ca-s"),
@@ -140,7 +134,7 @@ class CommandRule(MappingRule):
 
         # Custom key mappings.
         # "(run SSH session|run SSH console|run remote terminal|run remote console)": Key("a-f11/25, enter"),
-    }
+    },
     extras = [
         Integer("t", 1, 50),
         Dictation("text"),
@@ -149,17 +143,8 @@ class CommandRule(MappingRule):
         Integer("x", 0, 10),
         Integer("y", 0, 10),
         Integer("z", 0, 10),
-    ]
+    ],
     defaults = {
         "t": 1,
     }
-
-
-context = AppContext(executable="idea64")
-idea_grammar = Grammar("IntelliJ Idea", context=context)
-idea_grammar.add_rule(CommandRule())
-idea_grammar.load()
-
-def unload():
-    global idea_grammar
-    idea_grammar = utils.unloadHelper(idea_grammar,__name__)
+)

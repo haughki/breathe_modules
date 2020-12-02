@@ -37,7 +37,11 @@ RBRACE      = "race"
 LBRACKET    = "lack"
 RBRACKET    = "rack"
 LPAREN      = "lark"
+LPAREN2     = "paren"
+LPAREN3     = "el paren"
 RPAREN      = "hype"
+RPAREN2     = "are paren"
+
 A = "Alpha"
 B = "Bravo"
 C = "Charlie"
@@ -67,7 +71,7 @@ Z = "Zulu"
 
 
 
-CHARACTER_ALTERNATIVES = SPACE + " | " + AMPERSAND + " | " + APOSTROPHE + " | " + ASTERISK + " | " + AT + " | " + BACKSLASH + " | " + BACKTICK + " | " + BAR + " | " + CARET + " | " + COLON + " | " + HYPHEN + " | " + COMMA + " | " + DOLLAR + " | " + DOT + " | " + DQUOTE + " | " + EQUAL + " | " + EXCLAMATION + " | " + HASH + " | " + PERCENT + " | " + PLUS + " | " + QUESTION + " | " + SLASH + " | " + SQUOTE + " | " + TILDE + " | " + UNDERSCORE + " | " + SEMICOLON + " | " + LANGLE + " | " + RANGLE + " | " + LBRACE + " | " + RBRACE + " | " + LBRACKET + " | " + RBRACKET + " | " + LPAREN + " | " + RPAREN + " | " + A + " | " + B + " | " + C + " | " + D + " | " + E + " | " + F + " | " + G + " | " + H + " | " + I + " | " + J + " | " + K + " | " + L + " | " + M + " | " + N + " | " + O + " | " + P + " | " + Q + " | " + R + " | " + S + " | " + T + " | " + U + " | " + V + " | " + W + " | " + X + " | " + Y + " | " + Z + " | zero | one | two | three | four | five | six | seven | eight | nine"
+CHARACTER_ALTERNATIVES = SPACE + " | " + AMPERSAND + " | " + APOSTROPHE + " | " + ASTERISK + " | " + AT + " | " + BACKSLASH + " | " + BACKTICK + " | " + BAR + " | " + CARET + " | " + COLON + " | " + HYPHEN + " | " + COMMA + " | " + DOLLAR + " | " + DOT + " | " + DQUOTE + " | " + EQUAL + " | " + EXCLAMATION + " | " + HASH + " | " + PERCENT + " | " + PLUS + " | " + QUESTION + " | " + SLASH + " | " + SQUOTE + " | " + TILDE + " | " + UNDERSCORE + " | " + SEMICOLON + " | " + LANGLE + " | " + RANGLE + " | " + LBRACE + " | " + RBRACE + " | " + LBRACKET + " | " + RBRACKET + " | " + LPAREN + " | " + LPAREN2 + " | " + LPAREN3 + " | " + RPAREN + " | " + RPAREN2 + " | " + A + " | " + B + " | " + C + " | " + D + " | " + E + " | " + F + " | " + G + " | " + H + " | " + I + " | " + J + " | " + K + " | " + L + " | " + M + " | " + N + " | " + O + " | " + P + " | " + Q + " | " + R + " | " + S + " | " + T + " | " + U + " | " + V + " | " + W + " | " + X + " | " + Y + " | " + Z + " | zero | one | two | three | four | five | six | seven | eight | nine"
 
 CHARACTER_MAP = {   SPACE       : " ",
 				    AMPERSAND   : "&",
@@ -102,7 +106,10 @@ CHARACTER_MAP = {   SPACE       : " ",
 				    LBRACKET    : "[",
 				    RBRACKET    : "]",
 				    LPAREN      : "(",
+					LPAREN2     : "(",
+					LPAREN3     : "(",
 				    RPAREN      : ")",
+					RPAREN2     : ")",
 				    A : "a",
 				    B : "b",
 				    C : "c",

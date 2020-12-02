@@ -1,12 +1,5 @@
-"""A command module for Dragonfly, for controlling VSCode.
------------------------------------------------------------------------------
-Licensed under the LGPL3.
-
-"""
-
-from dragonfly import Grammar, MappingRule, Dictation, Integer, Key, Text, IntegerRef, AppContext, Pause, Mouse, Function
+from commands.imports import *
 from supporting import utils
-
 
 
 # def T(s, pause=0.00001, **kws):
@@ -30,18 +23,17 @@ def printUpDir(w):
         cd_command += "../"
     Text(cd_command).execute()
 
-
-class BashCommonMapping(MappingRule):
+Breathe.add_commands(
+    # mintty is git bash, git for Windows
+    context=AppContext(executable='ubuntu') | AppContext(executable='mobaxterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
         "short list": Text("ls") + Key("enter"),
         "go home": Text("cd ~") + Key("enter"),
         "[clear | free] line": Key("c-a") + Key("c-k"),
-        "free arg[ument]": Key("c-w"),
+        "free (arg | argument)": Key("c-w"),
         "to Jason": Text(" | python -m json.tool") + Key("enter"),
 
         "swat": Key("c-w"),
-
-
 
         "cat": T("cat "),
         "Clyde copy": T("cp "),
@@ -52,8 +44,8 @@ class BashCommonMapping(MappingRule):
         "chai up": T("cd ..\n"),
         "chai up [<w>]": Function(printUpDir),  # + Key("enter")
         # "chaif <common_folder>": T("cd %(common_folder)s\n"),
-        "echo": T("echo "),
-        "echo path": T("echo $PATH\n"),
+        # "echo": T("echo "),
+        # "echo path": T("echo $PATH\n"),
         "environment": T("env\n"),
         # "<grep>": T("%(grep)s -rin -B2 -A2 '' .") + K("left:3"),
         # "<grep> <text>": T("%(grep)s -rin -B2 -A2 '%(text)s' .\n"),
@@ -108,7 +100,7 @@ class BashCommonMapping(MappingRule):
 
         # checkpoint
         "clish command": T("clish -c \"\"") + K("left")
-    }
+    },
 
     extras = [
         Integer("t", 1, 50),
@@ -119,23 +111,11 @@ class BashCommonMapping(MappingRule):
         # Integer("x", 0, 10),
         # Integer("y", 0, 10),
         # Integer("z", 0, 10)
-    ]
+    ],
     defaults = {
         "t": 1,
         "text": "",
         "text2": ""
     }
+)
 
-
-ubu_context = AppContext(executable='ubuntu')
-moba_context = AppContext(executable='mobaxterm')
-mintty_context = AppContext(executable='mintty')  # git bash, git for Windows
-win_term_context = AppContext(executable='WindowsTerminal')
-multi_context = ubu_context | moba_context | mintty_context | win_term_context
-bash_common_grammar = Grammar('BashCommon', context=multi_context)
-bash_common_grammar.add_rule(BashCommonMapping())
-bash_common_grammar.load()
-
-def unload():
-    global bash_common_grammar
-    bash_common_grammar = utils.unloadHelper(bash_common_grammar, __name__)

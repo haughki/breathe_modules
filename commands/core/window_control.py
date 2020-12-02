@@ -14,6 +14,7 @@ To see data about the current available windows (including the actual names to u
 window_map = {
         "NatLink": {"exe_name": "natspeak", "title_hint": "messages from Natlink"},
         "idea": {"exe_name": "", "title_hint": ""},
+        "idea breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
         "chrome": {"exe_name": "", "title_hint": "Google Chrome"},   # Special hack to exclude Workona hidden tabs window from focus
         "evernote": {"exe_name": "evernote", "title_hint": "evernote"},
         "task manager": {"exe_name": "taskmgr", "title_hint": "Windows Task Manager"},
@@ -528,5 +529,8 @@ Breathe.add_commands(
         direction,
         nudge_multiplier,
         screen_fraction,
-    ]
+    ],
+    defaults={
+        "nudge_multiplier": 1,
+    }
 )

@@ -5,7 +5,13 @@ from commands.imports import *
 
 modules = {
     "commands": {
-        "apps": [],
+        "apps": [
+            "bash_common",
+            "chrome",
+            "intellij",
+            "vscode",
+            "wsl",
+        ],
         "core": [
             "editing_commands",
             "put_string_commands",
