@@ -45,6 +45,26 @@ Breathe.add_commands(
         "step out": Key("s-f8"),
         "(keep running | resume)": Key("f9"),
 
+        # Window handling
+        # "preev file": Key("c-tab"),
+        "next tab [<t>]": Key("a-right/5:%(t)d"),
+        "(preev | previous) tab [<t>]": Key("a-left/5:%(t)d"),
+        "move tab right [<t>]": Key("cas-right/5:%(t)d"),
+        "move tab left [<t>]": Key("cas-left/5:%(t)d"),
+        "make tab first": Key("cas-up/5:%(t)d"),
+        "make tab last": Key("cas-down/5:%(t)d"),
+        "close tab": Key("c-w"),
+
+        # note: you can focus the editor from anywhere by using 'fly' (escape)
+        "(full-screen | full screen)": Function(toggleFullScreen),  # macro, combination of: "Toggle Full Screen Mode" and "Hide All Tool Windows"
+        "(Hide | hide | hi) bottom": Key("s-escape"),  # "hide active tool window"
+        "(Hide | hide | hi) side": Key("cas-c"),  # "hide side tool windows"
+        "float [file] structure": Key("c-f12"),
+        "[go to | show] sidebar": Key("a-1"),
+        "[go to | show] structure": Key("a-7"),
+        "[go to | show] hierarchy": Key("a-8"),
+        "[go to | show] version control": Key("a-9"),
+
         # Code navigation.
         "get file [<text>]": Function(getFile),  # "Navigate > File..."
         "go to class": Key("c-n"),
@@ -52,11 +72,6 @@ Breathe.add_commands(
         "go to implementation": Key("ca-b"),
         "go to super": Key("c-u"),
 
-        "float [file] structure": Key("c-f12"),
-        "[go to | show] sidebar": Key("a-1"),
-        "[go to | show] structure": Key("a-7"),
-        "[go to | show] hierarchy": Key("a-8"),
-        "[go to | show] version control": Key("a-9"),
         "quick definition": Key("cs-i"),
         "quick (documentation | docs)": Key("c-q"),
         "toggle (book | bookmark)": Key("f7"),
@@ -65,8 +80,7 @@ Breathe.add_commands(
         "expand": Key("c-npadd"),
         "collapse": Key("c-npsub"),
 
-        # Project settings.
-        # note: you can focus the editor from anywhere by using 'fly' (escape)
+        # settings.
         "[go to | show] module settings": Key("f4"),
         "[go to | show] [project] settings": Key("cas-s"),
         "[go to | show] Global settings": Key("ca-s"),
@@ -97,20 +111,11 @@ Breathe.add_commands(
 
         # Edit
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/30") + Function(printNumber)+ Key("enter"),
-        "(full-screen | full screen)": Function(toggleFullScreen),  # macro, combination of: "Toggle Full Screen Mode" and "Hide All Tool Windows"
-        "(Hide | hide | hi) bottom": Key("s-escape"),  # "hide active tool window"
-        "(Hide | hide | hi) side": Key("cas-c"),  # "hide side tool windows"
         "comment [line | that | it]": Key("c-slash"),
         "show white space": Key("cs-w"),
         "redo": Key("cs-z"),
         "move line up": Key("c-up"),
         "move line down": Key("c-down"),
-
-        # Window handling
-        # "preev file": Key("c-tab"),
-        "next tab [<t>]": Key("a-right/5:%(t)d"),
-        "(preev | previous) tab [<t>]": Key("a-left/5:%(t)d"),
-        "close tab": Key("c-w"),
 
         # Version control
         "show diff": Key("c-d"),

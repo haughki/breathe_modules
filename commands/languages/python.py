@@ -1,5 +1,5 @@
 from commands.imports import *
-import specs
+import specs, python_bindings
 
 
 Breathe.add_commands(
@@ -56,10 +56,12 @@ Breathe.add_commands(
             "identity is":                  Text(" is "),
             "length ":                      Text("len()") + Key("left"),
 
-    },
+            "method <method>":              Text(".%(method)s()") + Key("left"),
+        },
     extras = [
         Dictation("modifiers"),
         Dictation("text"),
+        Choice("method", python_bindings.methods),
     ],
     defaults = {
         "modifiers": None,

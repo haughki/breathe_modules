@@ -167,17 +167,18 @@ Breathe.add_commands(
         "(spacebar | space bar) space": Text(" | "),
 
         ### Lines
-        "wipe [<n>]": Key("end, home:2, s-down:%(n)d, del"), # del lines down
-        "wipe up [<n>]": release + Key("end, home:2, s-up:%(n)d, s-home, del"), # del lines up
-        "clear line": Key("end, home:2, s-end, del"), # del everything on the line except the newline
         "end chuck": release + Key("s-end, del"), # del from cursor to line end
         "end copy": release + Key("s-end, c-c"), # copy from cursor to line end
         "end cut": release + Key("s-end, c-x"), # cut from cursor to line end
         "head chuck": release + Key("s-home, del"), # del from cursor to line home
         "head copy": release + Key("s-home, c-c"), # copy from cursor to line home
         "head cut": release + Key("s-home, c-x"), # cut from cursor to line home
+        "wipe [<n>]": Key("end, home:2, s-down:%(n)d, del"), # del lines down
+        "wipe up [<n>]": release + Key("end, home:2, s-up:%(n)d, s-home, del"), # del lines up
+        "line clear": Key("end, home:2, s-end, del"), # del everything on the line except the newline
         "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
-        "(line cut [<n>]) | (swipe [<n>])": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
+        "line cut [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
+        "line select [<n>]": release + Key("end, home:2, s-down:%(n)d"), # select lines down
         "dupe": release + Key("end, home, s-end, c-c, end, enter, c-v"), # duplicate lines down
 
         ### words

@@ -16,7 +16,8 @@ class SymbolSpecs(object):
     IF = "if then"
     ELSE = "(shells | else)"
     IF_ELSE = IF + " " + ELSE
-    DEFINE_METHOD = "[(public | protected | private)] [static] [final] [void] method [pascal | snake] [<text>]"  # public static void myMethod()
+    # public static void myMethod() -- default is camel case
+    DEFINE_METHOD = "[(public | protected | private)] [static] [final] [void] method [pascal | snake] [<text>]"
 
     SWITCH = "switch statement"
     CASE = "case of"
