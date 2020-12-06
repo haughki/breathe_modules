@@ -2,7 +2,7 @@ import gc
 import inspect
 import os
 
-from dragonfly import Key
+from dragonfly import Key, Text
 from dragonfly.windows.clipboard import Clipboard
 
 __author__ = 'parkerh'
@@ -83,6 +83,10 @@ def touch(fname, times=None):
 
 def toggleMicrophone():
     Key("npadd/10,npadd").execute()
+
+def printNumber(w, x=None, y=None, z=None):
+    number = buildNumber(w, x, y, z)
+    Text(number).execute()
 
 def buildNumber(w, x=None, y=None, z=None):
     """ Each input variable is a number 0...9, so that w=1, x=4, y=2 would produce 142 """

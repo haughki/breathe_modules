@@ -1,19 +1,16 @@
-import os
-
 from dragonfly import *
 from reimport import reimport
 
 from supporting import utils, character
-
-# putstringcommands is not included in the pushed source, because it contains personal data.
-try:
-    from ccr import putstringcommands
-except ImportError:
-    pass
-
-
+from commands.languages import specs
 
 MACROSYSTEM_DIRECTORY = "C:\\breathe_modules"
+
+
+def specsReloader():
+    print "Reloading specs..."
+    reimport(specs)
+    utils.toggleMicrophone()
 
 def characterReloader():
     print "Reloading character..."
@@ -27,6 +24,7 @@ def utilsReloader():
 
 class ReloadRule(MappingRule):
     mapping = {
+        "reload specs": Function(specsReloader),
         "reload character": Function(characterReloader),
         "reload utilities": Function(utilsReloader),
     }

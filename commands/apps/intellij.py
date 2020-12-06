@@ -10,11 +10,6 @@ def getFile(text=None):
     else:
         open_get_file_dialog.execute()
 
-def printNumber(w, x=None, y=None, z=None):
-    number = utils.buildNumber(w, x, y, z)
-    Text(number).execute()
-
-
 is_full_screen = False
 def toggleFullScreen():
     global is_full_screen
@@ -67,6 +62,7 @@ Breathe.add_commands(
 
         # Code navigation.
         "get file [<text>]": Function(getFile),  # "Navigate > File..."
+        "create [new] file": Key("cas-d"),
         "go to class": Key("c-n"),
         "go to declaration": Key("c-b"),
         "go to implementation": Key("ca-b"),
@@ -93,8 +89,8 @@ Breathe.add_commands(
         "replace all": Key("a-a"),
         "show find": Key("c-f"),
         "find <text>": Key("c-f/25") + Text("%(text)s"),
-        "find next": Key("f3"),
-        "find (prev | previous)": Key("s-f3"),
+        "find next [<n>]": Key("f3:%(n)d"),
+        "find (prev | previous) [<n>]": Key("s-f3:%(n)d"),
         "find [in | and] files": Key("cs-f"),
         "find usages": Key("a-f7"),
 
@@ -110,12 +106,12 @@ Breathe.add_commands(
         "gets complete": Key("space, equal, space/10, cs-space"),
 
         # Edit
-        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/30") + Function(printNumber)+ Key("enter"),
+        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/30") + Function(utils.printNumber)+ Key("enter"),
         "comment [line | that | it]": Key("c-slash"),
         "show white space": Key("cs-w"),
         "redo": Key("cs-z"),
-        "move line up": Key("c-up"),
-        "move line down": Key("c-down"),
+        "move line up [<n>]": Key("c-up:%(n)d"),
+        "move line down [<n>]": Key("c-down:%(n)d"),
 
         # Version control
         "show diff": Key("c-d"),
@@ -143,7 +139,7 @@ Breathe.add_commands(
     extras = [
         Integer("t", 1, 50),
         Dictation("text"),
-        IntegerRef("n", 1, 50000),
+        IntegerRef("n", 1, 50000, default=1),
         Integer("w", 0, 10),
         Integer("x", 0, 10),
         Integer("y", 0, 10),

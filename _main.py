@@ -14,6 +14,7 @@ modules = {
         ],
         "core": [
             "editing_commands",
+            "example",
             "put_string_commands",
             "scan_line",
             "text_formatting",

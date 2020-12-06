@@ -16,10 +16,6 @@ def getFile(text=None):
     else:
         open_get_file_dialog.execute()
 
-def printNumber(w, x=None, y=None, z=None):
-    number = utils.buildNumber(w, x, y, z)
-    Text(number).execute()
-
 Breathe.add_commands(
     context = AppContext(executable='code'),
     mapping = {
@@ -38,7 +34,7 @@ Breathe.add_commands(
         # "find in files": Key("cs-f"),
 
         # Edit.
-        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/25") + Function(printNumber) + Key("enter"),
+        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/25") + Function(utils.printNumber) + Key("enter"),
         "[show] white space": Key("cs-w"),
         "word wrap": Key("cs-d"),
         "comment [line | that | it]": Key("c-slash"),

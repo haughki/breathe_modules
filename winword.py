@@ -2,10 +2,6 @@ from dragonfly import Function
 from dragonfly import Grammar, MappingRule, Integer, Key, Text, AppContext
 from supporting import utils
 
-def printNumber(w, x=None, y=None, z=None):
-    number = utils.buildNumber(w, x, y, z)
-    Text(number).execute()
-
 class CommandRule(MappingRule):
     mapping = {
         # Window handling.
@@ -14,7 +10,7 @@ class CommandRule(MappingRule):
         "close tab": Key("c-w"),
         
         # Edit
-        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("f5/30, s-tab, up:2, down:2, tab") + Function(printNumber) + Key("enter, escape"),
+        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("f5/30, s-tab, up:2, down:2, tab") + Function(utils.printNumber) + Key("enter, escape"),
         "(shoreline | show | toggle) line numbers": Key("cas-l"),
         "hide line numbers": Key("cas-k"),
     }

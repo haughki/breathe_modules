@@ -15,7 +15,7 @@ class TokenSet(object):
 class SymbolSpecs(object):
     IF = "if then"
     ELSE = "(shells | else)"
-    IF_ELSE = IF + " " + ELSE
+    IF_ELSE = "if (shells | else)"
     # public static void myMethod() -- default is camel case
     DEFINE_METHOD = "[(public | protected | private)] [static] [final] [void] method [pascal | snake] [<text>]"
 
@@ -40,8 +40,8 @@ class SymbolSpecs(object):
 
     SYSOUT = "(print out | debug out)"
     IMPORT = "import"
-    FUNCTION = "function"
-    CLASS = "[(public | protected | private)] [static] [final] class [camel | snake] [<text>]"
+    FUNCTION = "[(public | protected | private)] [static] [final] function [Pascal | snake] [<text>]"
+    CLASS = "[(public | protected | private)] [static] [final] define class [camel | snake] [<text>]"
 
     COMMENT = "add comment"
     LONG_COMMENT = "long comment"

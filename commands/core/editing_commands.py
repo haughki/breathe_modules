@@ -18,10 +18,15 @@ letters = List("letters_list", [
 letters_reference = ListRef("letters_ref", letters)
 
 
-def mark_block(n, m):
+# def mark_block(a, w, b=None, c=None, d=None, x=None, y=None, z=None):
+#     num1 = int(utils.buildNumber(a, b, c, d))
+#     num2 = int(utils.buildNumber(w, x, y, z))
+#     Key("shift:down").execute()
+#     Key("down:" + str(num2 - num1 + 1)).execute()
+
+def mark_block(m, n):
     Key("shift:down").execute()
     Key("down:" + str(m - n + 1)).execute()
-
 
 
 #---------------------------------------------------------------------------
@@ -211,7 +216,7 @@ Breathe.add_commands(
         "control slap": Key("c-enter"),
         "(bolder|boulder) [that]": Key("c-b"),
         "italics [that]": Key("c-i"),
-        "undo [<n>]": Key("c-z:%(n)d"),
+        "(nope | undo) [<n>]": Key("c-z:%(n)d"),
         "preev (window | win)": Key("a-tab/10"),
         "preev file": Key("c-tab"),
         "say <text>": release + Text("%(text)s"),
