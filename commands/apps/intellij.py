@@ -85,7 +85,7 @@ Breathe.add_commands(
         "run terminal": Key("a-f12"),
 
         # Search.
-        "replace": Key("c-r"),
+        "replace [<text>]": Key("c-r/25") + Text("%(text)s"),
         "replace all": Key("a-a"),
         "show find": Key("c-f"),
         "find <text>": Key("c-f/25") + Text("%(text)s"),

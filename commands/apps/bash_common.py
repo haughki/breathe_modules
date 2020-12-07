@@ -29,8 +29,8 @@ Breathe.add_commands(
     mapping = {
         "short list": Text("ls") + Key("enter"),
         "go home": Text("cd ~") + Key("enter"),
-        "[clear | free] line": Key("c-a") + Key("c-k"),
-        "free (arg | argument)": Key("c-w"),
+        "line clear": Key("c-a") + Key("c-k"),
+        # "(arg | argument) clear": Key("c-w"),
         "to Jason": Text(" | python -m json.tool") + Key("enter"),
 
         "swat": Key("c-w"),

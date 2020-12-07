@@ -14,7 +14,9 @@ class CommandRule(MappingRule):
         "replace": Key("c-h"),
         "show find": Key("c-f"),
         "find <text>": Key("c-f/25") + Text("%(text)s"),
-        "find next": Key("c-g"),
+        "find next [<n>]": Key("c-g:%(n)d"),
+        "find (prev | previous) [<n>]": Key("s-f3:%(n)d"),
+
         "find (prev | previous)": Key("cs-g"),
         "note find": Key("c-q"),
         "note find <text>": Key("c-q/25") + Text("%(text)s"), 

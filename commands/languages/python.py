@@ -24,20 +24,23 @@ def define_class(text=None):
     else:
         (Text("class ():") + Key("left:3")).execute()
 
+def if_then(casing=utils.snake, text=None):
+    if text:
+        assert callable(casing)
+        (Text("if %s:" % casing(text)) + Key("enter")).execute()
+    else:
+        (Text("if :") + Key("left")).execute()
 
 Breathe.add_commands(
         context = AppContext(title=".py") | CommandContext("python"),
         mapping = {
             "(shells | else) if":                   Key("e,l,i,f,space,colon,left"),
             # specs.SymbolSpecs.IF:                   Key("i,f,space,colon,left"),
-           "if [<text>] then":                      Function(lambda text: (
-                                                        (Text("if %s:" % text) + Key("enter")).execute() if text else (Text("if :") + Key("left")).execute()
-                                                    )),
+           "if [<casing>] [<text>] then":                      Function(if_then),
             specs.SymbolSpecs.ELSE:                 Text("else:") + Key("enter"),
             "if (shells | else)":              Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
-            "define method [<text>]":        Text("def ():") + Key("left:3"),
+            "define method [<text>]":               Function(define_method),
             "define function [<text>]":             Function(define_function),
-            "define self":                          Text("def (self):") + Key("left:7"),
             specs.SymbolSpecs.FOR_LOOP:             Text("for i in range(0, ):") + Key("left:2"),
             specs.SymbolSpecs.FOR_EACH_LOOP:        Text("for in :") + Key("left:4"),
             specs.SymbolSpecs.SYSOUT:               Text("print()") + Key("left"),
@@ -55,6 +58,10 @@ Breathe.add_commands(
             specs.SymbolSpecs.TO_INTEGER:         Text("int()")+ Key("left"),
             specs.SymbolSpecs.TO_FLOAT:           Text("float()")+ Key("left"),
             "to (character | char)":              Text("chr()")+ Key("left"),
+            "to dictionary":              Text("dict()")+ Key("left"),
+            "to list":              Text("list()")+ Key("left"),
+            "to (topple | tuple)":              Text("tuple()")+ Key("left"),
+            "length ":                      Text("len()") + Key("left"),
 
             specs.SymbolSpecs.AND:                Text(" and "),
             specs.SymbolSpecs.OR:                 Text(" or "),
@@ -74,27 +81,26 @@ Breathe.add_commands(
             # "sue shells":                   Text("else "),
 
             "from":                         Text( "from " ),
-            "self":                         Text("self"),
-            # "long not":                     Text(" not "),
-            "it are in":                    Text(" in "),          #supposed to sound like "iter in"
-            # "shell iffae | LFA":            Key("e,l,i,f,space,colon,left"),
-
             "global":                       Text("global "),
+            "it are in":                    Text(" in "),          #supposed to sound like "iter in"
+            "identity is":                  Text(" is "),
+            "self":                         Text("self"),
+
             "list comprehension":           Text("[x for x in if ]"),
             "[dot] (pie | pi)":             Text(".py"),
-            "identity is":                  Text(" is "),
-            "is instance":                  Text(" isinstance()") + Key("left"),
-            "length ":                      Text("len()") + Key("left"),
+            # "is instance":                  Text(" isinstance()") + Key("left"),
 
             "dot meth <method>":              Text(".%(method)s()") + Key("left"),
-            # "built-in <builtin>":              Text(".%(method)s()") + Key("left"),
+            "built-in <builtin>":              Text("%(builtin)s()") + Key("left"),
+            "type <type>":              Text("%(type)s"),
         },
     extras = [
-        Dictation("modifiers"),
+        Dictation("modifiers", default=None),
         Dictation("text", default=""),
+        Choice("casing",
+               {"snake": utils.snake, "snake up": utils.upper_snake, "camel": utils.camel, "Pascal": utils.pascal, "squash": utils.one_word, "squash up": utils.upper_one_word }),
         Choice("method", python_bindings.methods),
-    ],
-    defaults = {
-        "modifiers": None,
-    }
+        Choice("builtin", python_bindings.builtins),
+        Choice("type", python_bindings.types),
+    ]
 )

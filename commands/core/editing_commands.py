@@ -3,7 +3,7 @@
 
 
 from commands.imports import *
-from supporting import character
+from supporting import character, utils
 
 
 
@@ -18,15 +18,15 @@ letters = List("letters_list", [
 letters_reference = ListRef("letters_ref", letters)
 
 
-# def mark_block(a, w, b=None, c=None, d=None, x=None, y=None, z=None):
-#     num1 = int(utils.buildNumber(a, b, c, d))
-#     num2 = int(utils.buildNumber(w, x, y, z))
-#     Key("shift:down").execute()
-#     Key("down:" + str(num2 - num1 + 1)).execute()
-
-def mark_block(m, n):
+def mark_block(a, w, b=None, c=None, d=None, x=None, y=None, z=None):
+    num1 = int(utils.buildNumber(a, b, c, d))
+    num2 = int(utils.buildNumber(w, x, y, z))
     Key("shift:down").execute()
-    Key("down:" + str(m - n + 1)).execute()
+    Key("down:" + str(num2 - num1 + 1)).execute()
+
+# def mark_block(m, n):
+#     Key("shift:down").execute()
+#     Key("down:" + str(m - n + 1)).execute()
 
 
 #---------------------------------------------------------------------------
@@ -88,6 +88,7 @@ Breathe.add_commands(
         character.EQUAL       + " [<n>]": Key("equal:%(n)d"),
         character.EXCLAMATION + " [<n>]": Key("exclamation:%(n)d"),
         character.HASH        + " [<n>]": Key("hash:%(n)d"),
+        character.POUND       + " [<n>]": Key("hash:%(n)d"),
         character.PERCENT     + " [<n>]": Key("percent:%(n)d"),
         character.PLUS        + " [<n>]": Key("plus:%(n)d"),
         character.QUESTION    + " [<n>]": Key("question:%(n)d"),
@@ -184,6 +185,8 @@ Breathe.add_commands(
         "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
         "line cut [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
         "line select [<n>]": release + Key("end, home:2, s-down:%(n)d"), # select lines down
+        "line select head": release + Key("s-home:2"), # select from cursor to start of line
+        "line select end": release + Key("s-end"), # select from cursor to end of line
         "dupe": release + Key("end, home, s-end, c-c, end, enter, c-v"), # duplicate lines down
 
         ### words
@@ -207,9 +210,9 @@ Breathe.add_commands(
         "(select all | tarp)": release + Key("c-a"), # select all
 
         "(mash | sky <letters_ref>)": Function(convert_to_upper),
-        "mark": Key("shift:down"),
-        "mark up": Key("shift:up"),
-        "mark [from] <n> to <m>": Function(mark_block),
+        "(Mark | mark)": Key("shift:down"),
+        "(Mark | mark) up": Key("shift:up"),
+        "(Mark | mark) [from] <a> [<b>] [<c>] [<d>] go <w> [<x>] [<y>] [<z>]": Function(mark_block),
         "release": release,
 
         ### other
@@ -231,13 +234,19 @@ Breathe.add_commands(
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),
     },
     extras = [
-        IntegerRef("n", 1, 10000),
-        IntegerRef("m", 1, 10000),
+        IntegerRef("n", 1, 10000, default=1),
+        # IntegerRef("m", 1, 10000, default=1),
+
+        Integer("a", 0, 10),
+        Integer("b", 0, 10),
+        Integer("c", 0, 10),
+        Integer("d", 0, 10),
+        Integer("w", 0, 10),
+        Integer("x", 0, 10),
+        Integer("y", 0, 10),
+        Integer("z", 0, 10),
+
         Dictation("text"),
         letters_reference,  # see definition of 'convert_to_upper()'
-    ],
-    defaults = {
-        "n": 1,
-        "m": 1,
-    }
+    ]
 )
