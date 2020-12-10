@@ -61,6 +61,7 @@ click_by_voice_delay = "50"
 
 class GlobalChromeMappings(MappingRule):
     mapping = {
+        "web search <text>": Key("c-t/50") + Text("%(text)s"),
         "new (thing | tab)": Key("c-t"),
         "new window": Key("c-n"),
         "reopen tab": Key("cs-t"),

@@ -17,7 +17,7 @@ class MultiMoreKeyMap(MappingRule):
 
         # Dragon NaturallySpeaking mimics
         "list Windows": Mimic("list", "all", "Windows"),
-        "(web search | search web) <text>": Mimic("search", "the", "web", "for", extra="text"),
+        "web search <text>": Mimic("search", "the", "web", "for", extra="text"),
 
         ### programming
         "short object": Text("obj"),

@@ -20,6 +20,7 @@ Breathe.add_commands(
     context = AppContext(executable='code'),
     mapping = {
         # misc
+        "do command": Key("cs-p"),
         "run app": Key("ca-n"),
 
         #"[go to | show] project window": Key("a-1"),
@@ -53,11 +54,11 @@ Breathe.add_commands(
         "(preev | previous) tab [<t>]": Key("c-pageup:%(t)d"),
         "close tab": Key("c-w"),
         "(full-screen | full screen)": Key("cs-x"),
-        "(toggle | hide | close | open | show) (project [window] | side (panel | bar))": Key("c-b"),
-        "[switch | go] side (panel | bar)": Key("c-0"),
+        "(toggle | show) sidebar": Key("c-b"),
+        "go to sidebar": Key("c-0"),
         "rename [current] file": Key("c-0") + Key("f2"),
-        "side (panel | bar) rename": Key("f2"),
-        "[(switch | go) to] editor": Key("csa-`"),
+        "sidebar rename": Key("f2"),
+        "goto editor": Key("csa-`"),
 
         # git
         "pull this": Key("c-t"),

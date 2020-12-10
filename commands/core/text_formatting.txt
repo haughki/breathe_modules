@@ -8,17 +8,17 @@ from supporting import utils
 
 # Format: some_words
 def format_snake(dictation):
-    """ (score | snake) <dictation> """
+    """ snake <dictation> """
     return utils.snake(str(dictation))
 
 # Format: some_words()
 def format_score_function(dictation):
-    """ (score | snake) funk <dictation> """
+    """ funk snake <dictation> """
     return utils.snake_function(str(dictation))
 
 # Format: SOME_WORDS
 def format_upper_score(dictation):
-    """ (score | snake) up <dictation> """
+    """ snake up <dictation> """
     return utils.upper_snake(str(dictation))
 
 # Format: some-words
@@ -43,7 +43,7 @@ def format_pascal(dictation):
 
 # Format: SomeWords()
 def format_pascal_function(dictation):
-    """ Pascal funk <dictation> """
+    """ funk Pascal <dictation> """
     return utils.pascal_function(str(dictation))
 
 # Format: someWords
@@ -53,5 +53,5 @@ def format_camel(dictation):
 
 # Format: someWords()
 def format_camel_function(dictation):
-    """ camel funk <dictation> """
+    """ funk camel <dictation> """
     return utils.camel_function(str(dictation))

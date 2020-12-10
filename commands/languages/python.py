@@ -14,8 +14,10 @@ def define_method(text=None):
         text = utils.snake(text)
         (Text("def " + text + "(self):") + Key("left:2")).execute()
     else:
-        (Text("def (self):") + Key("left:3")).execute()
+        (Text("def (self):") + Key("left:7")).execute()
 
+def define_private_method(text=None):
+    define_method("_" + text)
 
 def define_class(text=None):
     if text:
@@ -23,6 +25,10 @@ def define_class(text=None):
         (Text("class " + text + "():") + Key("left:2")).execute()
     else:
         (Text("class ():") + Key("left:3")).execute()
+
+def make_private(text):
+    text = "_" + utils.snake(text)
+    (Text(text)).execute()
 
 def if_then(casing=utils.snake, text=None):
     if text:
@@ -32,68 +38,97 @@ def if_then(casing=utils.snake, text=None):
         (Text("if :") + Key("left")).execute()
 
 Breathe.add_commands(
-        context = AppContext(title=".py") | CommandContext("python"),
-        mapping = {
-            "(shells | else) if":                   Key("e,l,i,f,space,colon,left"),
-            # specs.SymbolSpecs.IF:                   Key("i,f,space,colon,left"),
-           "if [<casing>] [<text>] then":                      Function(if_then),
-            specs.SymbolSpecs.ELSE:                 Text("else:") + Key("enter"),
-            "if (shells | else)":              Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
-            "define method [<text>]":               Function(define_method),
-            "define function [<text>]":             Function(define_function),
-            specs.SymbolSpecs.FOR_LOOP:             Text("for i in range(0, ):") + Key("left:2"),
-            specs.SymbolSpecs.FOR_EACH_LOOP:        Text("for in :") + Key("left:4"),
-            specs.SymbolSpecs.SYSOUT:               Text("print()") + Key("left"),
+    context = AppContext(title=".py") | CommandContext("python"),
+    mapping = {
+        "(shells | else) if":                                 Key("e,l,i,f,space,colon,left"),
+        # specs.SymbolSpecs.IF:                               Key("i,f,space,colon,left"),
+        "if [<casing>] [<text>] then":                        Function(if_then),
+        "(shells | else) then":                               Text("else:") + Key("enter"),
+        "if (shells | else)":                                 Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
+        "inline if":                                          Text(" if  else ") + Key("left:6"),
+        "list comprehension":                                 Text("[x for x in if ]"),
+        "define class [camel | snake] [<text>]":              Function(define_class),
+        "define method [<text>]":                             Function(define_method),
+        "define private method [<text>]":                     Function(define_private_method),
+        "define function [<text>]":                           Function(define_function),
+        "define initialize":                                  Text("def __init__(self):") + Key("left:2"),
+        "private <text>":                                     Function(make_private),
 
+        "print out":                      Text("print()") + Key("left"),
+        "self":                           Text("self"),
+        "for loop":                       Text("for i in range(0, ):") + Key("left:2"),
+        "for each":                       Text("for in :") + Key("left:4"),
+        "breaker":                        Text("break"),
+        "while loop":                     Text("while :")+ Key("left"),
+        "with":                           Text("with "),
+        "with open":                      Text("with open()") + Text(" as f") + Key("colon/3, left:7"),
+        # "open file":                    Text("open('filename','r') as f:"),
+        # "read lines":                   Text("content = f.readlines()"),
+        "try catch":                      Text("try:") + Key("enter:2, backspace") + Text("except Exception:") + Key("enter, up, up"),
+        "except":                         Text("except :") + Key("left"),
+        "finally":                        Text("finally:") + Key("enter"),
+        "raise":                          Text("raise "),
 
-            "with":                         Text("with "),
-            # "open file":                    Text("open('filename','r') as f:"),
-            # "read lines":                   Text("content = f.readlines()"),
-            # "try catch":                    Text("try:")+Key("enter:2/10, backspace")+Text("except Exception:")+Key("enter"),
+        "to string":                      Text("str()") + Key("left"),
+        "to integer":                     Text("int()") + Key("left"),
+        "to float":                       Text("float()") + Key("left"),
+        "to (character | char)":          Text("chr()") + Key("left"),
+        "to dictionary":                  Text("dict()") + Key("left"),
+        "to list":                        Text("list()") + Key("left"),
+        "to (topple | tuple)":            Text("tuple()") + Key("left"),
+        "length":                         Text("len()") + Key("left"),
 
-            specs.SymbolSpecs.BREAK:              Text("break"),
-            specs.SymbolSpecs.WHILE_LOOP:         Text("while :")+ Key("left"),
+        "lodge and":                    Text(" and "),
+        "lodge as":                     Text(" as "),
+        "lodge (shells | else)":        Text(" else "),
+        "lodge if":                     Text(" if "),
+        "lodge in":                     Text(" in "),
+        "lodge is":                     Text(" is "),
+        "lodge is not":                 Text(" is not "),
+        "lodge not":                    Text(" not "),
+        "lodge not in":                 Text(" not in "),
+        "lodge or":                     Text(" or "),
+        "lodge for":                      Text(" for "),
+        "not nothing":                    Text(" not None"),
+        "is not nothing":                 Text(" is not None"),
+        "true":                           Text("True"),
+        "false":                          Text("False"),
+        "nothing":                        Text("None"),
 
-            specs.SymbolSpecs.TO_STRING:          Text("str()") + Key("left"),
-            specs.SymbolSpecs.TO_INTEGER:         Text("int()")+ Key("left"),
-            specs.SymbolSpecs.TO_FLOAT:           Text("float()")+ Key("left"),
-            "to (character | char)":              Text("chr()")+ Key("left"),
-            "to dictionary":              Text("dict()")+ Key("left"),
-            "to list":              Text("list()")+ Key("left"),
-            "to (topple | tuple)":              Text("tuple()")+ Key("left"),
-            "length ":                      Text("len()") + Key("left"),
+        # "and":                            Text(" and "),
+        # "as":                             Text(" as "),
+        # "(shells | else)":                Text(" else "),
+        # "if":                             Text(" if "),
+        # "in":                             Text(" in "),
+        # "is":                             Text(" is "),
+        # "is not":                         Text(" is not "),
+        # "not":                            Text(" not "),
+        # "not in":                         Text(" not in "),
+        # "or":                             Text(" or "),
+        # "for":                          Text(" for "),
 
-            specs.SymbolSpecs.AND:                Text(" and "),
-            specs.SymbolSpecs.OR:                 Text(" or "),
-            specs.SymbolSpecs.NOT:                Text(" not "),
+        "import":                         Text( "import " ),
+        "return":                         Text("return "),
+        "from":                           Text( "from " ),
+        "global":                         Text("global "),
+        "assert":                         Text("assert "),
+        "async":                          Text("async"),
+        "await":                          Text("await"),
+        "continue":                       Text("continue"),
+        "delete":                         Text("del "),
+        "lambda":                         Text("lambda :") + Key("left"),
+        "non-local":                      Text("nonlocal"),
+        "pass":                           Text("pass"),
+        "yield":                          Text("yield"),
 
-            specs.SymbolSpecs.IMPORT:             Text( "import " ),
-            specs.SymbolSpecs.CLASS:              Function(define_class),
-            specs.SymbolSpecs.COMMENT:            Text( "#" ),
-            specs.SymbolSpecs.LONG_COMMENT:       Text("\"\"\""),
-            specs.SymbolSpecs.NOT_EQUAL_NULL:     Text(" not None"),
-            specs.SymbolSpecs.NULL:               Text("None"),
-            specs.SymbolSpecs.RETURN:             Text("return "),
-            specs.SymbolSpecs.TRUE:               Text("True"),
-            specs.SymbolSpecs.FALSE:              Text("False"),
+        "add comment":                    Text( "#" ),
+        "long comment":                   Text("\"\"\""),
+        "[dot] (pie | pi)":               Text(".py"),
 
-            # "sue iffae":                    Text("if "),
-            # "sue shells":                   Text("else "),
-
-            "from":                         Text( "from " ),
-            "global":                       Text("global "),
-            "it are in":                    Text(" in "),          #supposed to sound like "iter in"
-            "identity is":                  Text(" is "),
-            "self":                         Text("self"),
-
-            "list comprehension":           Text("[x for x in if ]"),
-            "[dot] (pie | pi)":             Text(".py"),
-            # "is instance":                  Text(" isinstance()") + Key("left"),
-
-            "dot meth <method>":              Text(".%(method)s()") + Key("left"),
-            "built-in <builtin>":              Text("%(builtin)s()") + Key("left"),
-            "type <type>":              Text("%(type)s"),
-        },
+        "dot method <method>":            Text(".%(method)s()") + Key("left"),
+        "built-in <builtin>":             Text("%(builtin)s()") + Key("left"),
+        "type <type>":                    Text("%(type)s"),
+    },
     extras = [
         Dictation("modifiers", default=None),
         Dictation("text", default=""),

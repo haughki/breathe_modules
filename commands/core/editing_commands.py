@@ -37,13 +37,13 @@ release = Key("shift:up, ctrl:up, alt:up")
 
 Breathe.add_commands(
     None,
-    {
+    mapping={
         # Spoken-form    ->    ->    ->     Action object
 
         #### Dragon
         "Snork": Key("npadd/10,npadd"),  # turn mic on and off
         "(Mike | mic) off": Key("npadd"),  # turn mic off
-        "sleep (mic | Mike)": Key("npdiv"),
+        "(Mike | mic) sleep": Key("npdiv"),
 
         #### Cursor manipulation
         "cup [<n>]": Key("up:%(n)d"),
@@ -148,6 +148,17 @@ Breathe.add_commands(
         "seven": Key("7"),
         "eight": Key("8"),
         "nine": Key("9"),
+
+        "numb zero": Key("0"),
+        "numb one": Key("1"),
+        "numb two": Key("2"),
+        "numb three": Key("3"),
+        "numb four": Key("4"),
+        "numb five": Key("5"),
+        "numb six": Key("6"),
+        "numb seven": Key("7"),
+        "numb eight": Key("8"),
+        "numb nine": Key("9"),
 
         ### Function Keys
         "(F | f) one": Key("f1"),

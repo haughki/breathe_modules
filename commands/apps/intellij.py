@@ -44,8 +44,8 @@ Breathe.add_commands(
         # "preev file": Key("c-tab"),
         "next tab [<t>]": Key("a-right/5:%(t)d"),
         "(preev | previous) tab [<t>]": Key("a-left/5:%(t)d"),
-        "move tab right [<t>]": Key("cas-right/5:%(t)d"),
-        "move tab left [<t>]": Key("cas-left/5:%(t)d"),
+        "move tab right [<t>]": Key("cas-right/15:%(t)d"),
+        "move tab left [<t>]": Key("cas-left/15:%(t)d"),
         "make tab first": Key("cas-up/5:%(t)d"),
         "make tab last": Key("cas-down/5:%(t)d"),
         "close tab": Key("c-w"),
@@ -55,16 +55,17 @@ Breathe.add_commands(
         "(Hide | hide | hi) bottom": Key("s-escape"),  # "hide active tool window"
         "(Hide | hide | hi) side": Key("cas-c"),  # "hide side tool windows"
         "float [file] structure": Key("c-f12"),
-        "[go to | show] sidebar": Key("a-1"),
-        "[go to | show] structure": Key("a-7"),
-        "[go to | show] hierarchy": Key("a-8"),
-        "[go to | show] version control": Key("a-9"),
+        "(go to | show) sidebar": Key("a-1"),
+        "(go to | show) structure": Key("a-7"),
+        "(go to | show) hierarchy": Key("a-8"),
+        "(go to | show) version control": Key("a-9"),
 
         # Code navigation.
         "get file [<text>]": Function(getFile),  # "Navigate > File..."
+        "sidebar file": Key("cs-j/25, enter"),
         "create [new] file": Key("cas-d"),
         "go to class": Key("c-n"),
-        "go to declaration": Key("c-b"),
+        "go to (declaration | definition)": Key("c-b"),
         "go to implementation": Key("ca-b"),
         "go to super": Key("c-u"),
 

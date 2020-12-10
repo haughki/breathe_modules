@@ -15,6 +15,7 @@ window_map = {
         "NatLink": {"exe_name": "natspeak", "title_hint": "messages from Natlink"},
         "idea": {"exe_name": "", "title_hint": ""},
         "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
+        "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
         "chrome": {"exe_name": "", "title_hint": "Google Chrome"},   # Special hack to exclude Workona hidden tabs window from focus
         "evernote": {"exe_name": "evernote", "title_hint": "evernote"},
         "task manager": {"exe_name": "taskmgr", "title_hint": "Windows Task Manager"},

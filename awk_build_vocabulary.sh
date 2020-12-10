@@ -5,9 +5,15 @@ BEGIN {
     in_mapping = 0
 }
 
-/^    mapping\s*=\s*{/{
+/^    mapping\s*=\s*{/ {
     in_mapping = 1
     # print("in mapping")
+}
+
+/^\s*$/ {
+    if (in_mapping) {
+        print ""
+    }
 }
 
 /^        "/ {
