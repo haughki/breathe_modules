@@ -7,14 +7,13 @@ from dragonfly.windows.clipboard import Clipboard
 
 __author__ = 'parkerh'
 
+NATLINK_USER_DIRECTORY = "C:\\breathe_modules"
 
 def unloadHelper(grammar, name):
     if grammar:
         print "unloading " + name + "..."
         grammar.unload()
     return None
-
-
 
 def getClassFields(aClass):
     classFields = []

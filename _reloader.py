@@ -4,7 +4,7 @@ from reimport import reimport
 from supporting import utils, character
 from commands.languages import specs, python_bindings
 
-MACROSYSTEM_DIRECTORY = "C:\\breathe_modules"
+
 
 reload_these = (
     utils,

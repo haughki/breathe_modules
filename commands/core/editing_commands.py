@@ -180,7 +180,7 @@ Breathe.add_commands(
         "(not eeks | nodeeks)": Key("space, bang, equal, space"),
         "line dash": Key("space, hyphen, hyphen, space"),
         "(one | won) dash": Key("space, hyphen, space"),
-        "string (add | had)": Key("space, plus, space"),
+        "(add | had) it": Key("space, plus, space"),
         "(spacebar | space bar) space": Text(" | "),
 
         ### Lines
@@ -196,8 +196,8 @@ Breathe.add_commands(
         "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
         "line cut [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
         "line select [<n>]": release + Key("end, home:2, s-down:%(n)d"), # select lines down
-        "line select head": release + Key("s-home:2"), # select from cursor to start of line
-        "line select end": release + Key("s-end"), # select from cursor to end of line
+        "head select": release + Key("s-home:2"), # select from cursor to start of line
+        "end select": release + Key("s-end"), # select from cursor to end of line
         "dupe": release + Key("end, home, s-end, c-c, end, enter, c-v"), # duplicate lines down
 
         ### words

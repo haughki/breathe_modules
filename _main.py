@@ -13,6 +13,7 @@ modules = {
             "wsl",
         ],
         "core": [
+            "aliases",
             "editing_commands",
             "example",
             "put_string_commands",

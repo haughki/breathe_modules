@@ -6,7 +6,7 @@ def addAlias(dictation):
     alias_value = utils.getSelectedText()
     if not alias_value or alias_value == "":
         raise StandardError("No value for \"alias_value\".  Select some text to alias.")
-    file_path = "C:\\NatLink\\NatLink\\MacroSystem\\_aliases.py"
+    file_path = utils.NATLINK_USER_DIRECTORY + "\\commands\\core\\aliases.py"
     lines = []
     with open(file_path, 'r') as aliases:
         lines = aliases.readlines()
@@ -29,7 +29,7 @@ def addAlias(dictation):
                     done_adding = True
                 else:
                     aliases.write(line)
-    utils.toggleMicrophone()
+    Mimic("rebuild", "everything").execute(),
 
 
 class AddAliasRule(MappingRule):

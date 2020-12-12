@@ -1,6 +1,6 @@
 from commands.imports import *
 from supporting import utils
-import time, logging
+import time, logging, re
 rule_log = logging.getLogger("rule")
 
 """
@@ -121,7 +121,7 @@ def find_window(app_name, title_fragment, exe_name, title_hint):
 
         # there will always be an exe name because of check above
         if window.executable.lower().find(exe_name) != -1:
-            if exe_name == "chrome" and window.title.lower().find("hidden tabs - workona") != -1:  # custom rule to never focus workona hidden tabs
+            if exe_name == "chrome" and re.search(r"hidden tab(s?)\s*-\s*workona", window.title.lower()):  #     window.title.lower().find("hidden tabs - workona") != -1:  # custom rule to never focus workona hidden tabs
                 continue
             if not title_fragment and not title_hint:
                 best_match = window

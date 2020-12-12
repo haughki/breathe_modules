@@ -10,6 +10,9 @@ BEGIN {
     # print("in mapping")
 }
 
+
+# Note: originally, I tried to use '^$' as the pattern to match blank lines; I found references to this in many places.
+# But it didn't work -- it wouldn't match blank lines that ended in CRLF. I don't know why.
 /^\s*$/ {
     if (in_mapping) {
         print ""
