@@ -22,8 +22,10 @@ Breathe.add_commands(
         # misc
         "do command": Key("cs-p"),
         "run app": Key("ca-n"),
+        "jump": Key("c-semicolon"),
+        "select jump": Key("ca-comma"),
 
-        #"[go to | show] project window": Key("a-1"),
+       #"[go to | show] project window": Key("a-1"),
 
         # Search.
         "replace": Key("c-r"),
@@ -51,14 +53,14 @@ Breathe.add_commands(
         # Window handling.
         "new tab": Key("c-n"),
         "next tab [<t>]": Key("c-pagedown:%(t)d"),
-        "(preev | previous) tab [<t>]": Key("c-pageup:%(t)d"),
+        "preev tab [<t>]": Key("c-pageup:%(t)d"),
         "close tab": Key("c-w"),
         "(full-screen | full screen)": Key("cs-x"),
         "(toggle | show) sidebar": Key("c-b"),
         "go to sidebar": Key("c-0"),
+        "go to editor": Key("csa-`"),
         "rename [current] file": Key("c-0") + Key("f2"),
         "sidebar rename": Key("f2"),
-        "goto editor": Key("csa-`"),
 
         # git
         "pull this": Key("c-t"),

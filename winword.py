@@ -6,7 +6,7 @@ class CommandRule(MappingRule):
     mapping = {
         # Window handling.
         "next tab [<t>]": Key("c-tab/40:%(t)d"),
-        "(preev | previous) tab [<t>]": Key("cs-tab/40:%(t)d"),
+        "preev tab [<t>]": Key("cs-tab/40:%(t)d"),
         "close tab": Key("c-w"),
         
         # Edit

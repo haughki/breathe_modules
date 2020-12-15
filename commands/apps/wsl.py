@@ -18,7 +18,7 @@ Breathe.add_commands(
         "new tab": Key("cs-t"),
         "(duplicate | dupe) tab": Key("cs-d"),
         "next tab [<t>]": Key("c-tab"),
-        "(preev | previous) tab [<t>]": Key("cs-tab"),
+        "preev tab [<t>]": Key("cs-tab"),
         # "move tab right [<t>]": Key("cas-right/5:%(t)d"),
         # "move tab left [<t>]": Key("cas-left/5:%(t)d"),
         "close tab": Key("c-w"),
@@ -35,7 +35,8 @@ Breathe.add_commands(
         "mount Charlie": Text("/mnt/c/"),
 
         # midnight commander
-        "toggle command line": Key("c-o"),
+        "go command": Key("c-o"),
+        "go commander": Key("c-o"),
         "show find": build_context(Key("c-s"), Key("cs-f")),
         "find <text>": build_context(Key("c-s/25") + Text("%(text)s"), Key("cs-f/25") + Text("%(text)s")),
     },

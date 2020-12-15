@@ -24,7 +24,7 @@ class CommandRule(MappingRule):
         # Window handling.
         # "new tab": Key("c-n"),
         # "next tab [<t>]": Key("c-tab:%(t)d"),
-        # "(preev | previous) tab [<t>]": Key("cs-tab:%(t)d"),
+        # "preev tab [<t>]": Key("cs-tab:%(t)d"),
         # "close tab": Key("c-w"),
         # "(full-screen | full screen)": Key("f11"),
     }

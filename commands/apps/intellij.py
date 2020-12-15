@@ -1,5 +1,18 @@
 from commands.imports import *
-from supporting import utils
+from supporting import utils, character
+
+# disabled -- see quote below
+def select_jump(c1, c2=None, c3=None):
+    # print(str(c1) + "    " + str(c2)  + "    " + str(c3))
+    c1 = character.NAMED_CHARACTER_MAP[c1] if c1 else None
+    c2 = character.NAMED_CHARACTER_MAP[c2] if c2 else None
+    c3 = character.NAMED_CHARACTER_MAP[c3] if c3 else None
+    # print(str(c1) + "    " + str(c2)  + "    " + str(c3))
+    Key("c-semicolon").execute()
+    if c1: Key(c1).execute()
+    if c2: Key(c2).execute()
+    if c3: Key(c3).execute()
+    Key("shift:down").execute()
 
 def getFile(text=None):
     open_get_file_dialog = Key("cas-n")
@@ -43,7 +56,7 @@ Breathe.add_commands(
         # Window handling
         # "preev file": Key("c-tab"),
         "next tab [<t>]": Key("a-right/5:%(t)d"),
-        "(preev | previous) tab [<t>]": Key("a-left/5:%(t)d"),
+        "preev tab [<t>]": Key("a-left/5:%(t)d"),
         "move tab right [<t>]": Key("cas-right/25:%(t)d"),
         "move tab left [<t>]": Key("cas-left/25:%(t)d"),
         "make tab first": Key("cas-up/5:%(t)d"),
@@ -78,9 +91,9 @@ Breathe.add_commands(
         "collapse": Key("c-npsub"),
 
         # settings.
-        "[go to | show] module settings": Key("f4"),
-        "[go to | show] [project] settings": Key("cas-s"),
-        "[go to | show] Global settings": Key("ca-s"),
+        "(go to | show) module settings": Key("f4"),
+        "(go to | show) project settings": Key("cas-s"),
+        "(go to | show) [Global] settings": Key("ca-s"),
 
         # Terminal.
         "run terminal": Key("a-f12"),
@@ -107,6 +120,12 @@ Breathe.add_commands(
         "gets complete": Key("space, equal, space/10, cs-space"),
 
         # Edit
+        "jump": Key("c-semicolon"),
+        "select jump <c1> [<c2>] [<c3>]": Function(select_jump),
+        "select word jump": Key("ca-semicolon"),
+        "(declaration | definition) jump": Key("ctrl:down, semicolon, semicolon, ctrl:up"),
+        # "line jump": Key("cs-semicolon"),
+
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/30") + Function(utils.printNumber)+ Key("enter"),
         "comment [line | that | it]": Key("c-slash"),
         "show white space": Key("cs-w"),
@@ -116,6 +135,8 @@ Breathe.add_commands(
 
         # Version control
         "show diff": Key("c-d"),
+        "next (diff | if) [<n>]": Key("f3:%(n)d"),
+        "preev diff [<n>]": Key("s-f3:%(n)d"),
         "(get | git) pull": Key("c-t"),
         "(get | git) push": Key("cs-k"),
         "(get | git) commit": Key("c-k"),
@@ -145,6 +166,9 @@ Breathe.add_commands(
         Integer("x", 0, 10),
         Integer("y", 0, 10),
         Integer("z", 0, 10),
+        Alternative(character.character_alternatives, name="c1"),
+        Alternative(character.character_alternatives, name="c2"),
+        Alternative(character.character_alternatives, name="c3"),
     ],
     defaults = {
         "t": 1,
