@@ -32,7 +32,7 @@ def lineSearch(dictation_to_find, replace_with_me, _node):
     to_find = to_find.lower()
     searching_message = "Searching for " + ordinal_arg + ": "  if ordinal_arg else "Searching for: "
     print searching_message + to_find
-    Key("end,s-home/5").execute()  # select the line
+    Key("end,s-home/10").execute()  # select the line
     line = utils.getSelectedText().lower()  # copied to the clipboard, then get from the clipboard
     print "Searching in line: " + line
     line_index = -1
@@ -41,7 +41,9 @@ def lineSearch(dictation_to_find, replace_with_me, _node):
     else:
         line_index = line.find(to_find)
     if line_index != -1:
-        Key("end,home,right:" + str(line_index)).execute()
+        Key("end/5").execute()
+        Key("home/5").execute()
+        Key("right:" + str(line_index)).execute()
         if replacing:
             Key("cs-right").execute()
             selected = utils.getSelectedText()

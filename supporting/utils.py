@@ -51,7 +51,7 @@ def getSelectedText():
     
     # print "original before copy: " + original.get_text()
     
-    Key("c-c/5").execute()
+    Key("c-c/10").execute()
     # note that trying to re-use this clipboard object after it's been
     # modified has caused me issues in the past -- seems to hold onto old values...
     just_copied = Clipboard()

@@ -41,8 +41,8 @@ Breathe.add_commands(
         "[show] white space": Key("cs-w"),
         "word wrap": Key("cs-d"),
         "comment [line | that | it]": Key("c-slash"),
-        "move line up": Key("c-up"),
-        "move line down": Key("c-down"),
+        "move line up [<n>]": Key("c-up:%(n)d"),
+        "move line down [<n>]": Key("c-down:%(n)d"),
 
         # Code navigation.
         "get file [<text>]": Function(getFile),  # "Navigate > File..."

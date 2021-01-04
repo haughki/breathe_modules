@@ -175,13 +175,21 @@ Breathe.add_commands(
         "(F | f) twelve": Key("f12"),
 
         ### Special Strings
+        "(one | won) dash": Key("space, hyphen, space"),
+        "line dash": Key("space, hyphen, hyphen, space"),
         "gets": Key("space, equal, space"),
         "eeks": Key("space, equal, equal, space"),
         "(not eeks | nodeeks)": Key("space, bang, equal, space"),
-        "line dash": Key("space, hyphen, hyphen, space"),
-        "(one | won) dash": Key("space, hyphen, space"),
-        "(add | had) it": Key("space, plus, space"),
         "(spacebar | space bar) space": Text(" | "),
+        "here (add | had)": Key("space, plus, space"),
+        "here minus": Key("space, hyphen, space"),
+        "here times": Key("space, asterisk, space"),
+        "here divide": Key("space, slash, space"),
+        # "here and": Key("space, ampersand, ampersand, space"),
+        "greater than": Key("space, rangle, space"),
+        "greater equals": Key("space, rangle, equal, space"),
+        "less than": Key("space, langle, space"),
+        "less equals": Key("space, langle, equal, space"),
 
         ### Lines
         "end chuck": release + Key("s-end, del"), # del from cursor to line end
@@ -192,7 +200,7 @@ Breathe.add_commands(
         "head cut": release + Key("s-home, c-x"), # cut from cursor to line home
         "wipe [<n>]": Key("end, home:2, s-down:%(n)d, del"), # del lines down
         "wipe up [<n>]": release + Key("end, home:2, s-up:%(n)d, s-home, del"), # del lines up
-        "line clear": Key("end, home:2, s-end, del"), # del everything on the line except the newline
+        "line chuck": Key("end, home:2, s-end, del"), # del everything on the line except the newline
         "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
         "line cut [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
         "line select [<n>]": release + Key("end, home:2, s-down:%(n)d"), # select lines down

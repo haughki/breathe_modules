@@ -71,7 +71,6 @@ builtins = {
 }
 
 methods = {
-    "(iter | hitter) items" : "iteritems",
     "append"                : "append",
     "apply"                 : "apply",
     "capitalise"            : "capitalize",
@@ -87,6 +86,7 @@ methods = {
     "index"                 : "index",
     "insert"                : "insert",
     "items"                 : "items",
+    "(iter | hitter) items" : "iteritems",
     "is instance"           : "isinstance",
     "keys"                  : "keys",
     "lower"                 : "lower",

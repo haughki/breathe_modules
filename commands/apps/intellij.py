@@ -61,7 +61,7 @@ Breathe.add_commands(
         "move tab left [<t>]": Key("cas-left/25:%(t)d"),
         "make tab first": Key("cas-up/5:%(t)d"),
         "make tab last": Key("cas-down/5:%(t)d"),
-        "close tab": Key("c-w"),
+        "close tab [<n>]": Key("c-w:%(n)d"),
 
         # note: you can focus the editor from anywhere by using 'fly' (escape)
         "(full-screen | full screen)": Function(toggleFullScreen),  # macro, combination of: "Toggle Full Screen Mode" and "Hide All Tool Windows"
@@ -126,7 +126,7 @@ Breathe.add_commands(
         "(declaration | definition) jump": Key("ctrl:down, semicolon, semicolon, ctrl:up"),
         # "line jump": Key("cs-semicolon"),
 
-        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/30") + Function(utils.printNumber)+ Key("enter"),
+        "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/50") + Function(utils.printNumber)+ Key("enter"),
         "comment [line | that | it]": Key("c-slash"),
         "show white space": Key("cs-w"),
         "redo": Key("cs-z"),
