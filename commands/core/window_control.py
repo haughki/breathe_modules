@@ -168,8 +168,13 @@ class WinSelectorRule(CompoundRule):
 win_selector = RuleRef(WinSelectorRule(), name="win_selector")
 
 """ Focus a Window """
-def focus_win(win_selector):
-    window = win_selector
+def focus_win(win_selector=None, app_name=None):
+    if not win_selector and not app_name:
+        rule_log.error("win_selector or app_name cannot both be empty.")
+    if win_selector:
+        window = win_selector
+    else:
+        window = get_app_window(app_name, "")
     if not window:
         rule_log.warning("No window with that name found.", exc_info=True)
         return
@@ -512,10 +517,10 @@ def fraction_win(_node, win_selector, screen_fraction):
     window.move(pos) # , animate="spline"
 
 
-
 Breathe.add_commands(
     None,
     {
+        "<app_name>": Function(focus_win),
         config.lang.focus_win: Function(focus_win),
         config.lang.place_win: Function(place_win),
         config.lang.nudge_win: Function(nudge_win),
@@ -524,6 +529,8 @@ Breathe.add_commands(
         config.lang.place_win_fraction: Function(fraction_win)
     },
     extras = [
+        # "focus" shortcuts for certain high usage applications
+        Alternative((Literal("note"), Literal("chrome")), "app_name"),
         win_selector,
         mon_selector,
         position,

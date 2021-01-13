@@ -226,9 +226,10 @@ Breathe.add_commands(
         "copy": release + Key("c-c"), # copy
         "shell copy": release + Key("cs-c"), # copy
         "cut": release + Key("c-x"), # cut
-        "(select all | tarp)": release + Key("c-a"), # select all
+        "tarp": release + Key("c-a"), # select all
+        "transfer": release + Key("c-a") + Key("c-x"),
 
-        "(mash | sky <letters_ref>)": Function(convert_to_upper),
+        "sky <letters_ref>": Function(convert_to_upper),
         "(Mark | mark)": Key("shift:down"),
         "(Mark | mark) up": Key("shift:up"),
         "(Mark | mark) [from] <a> [<b>] [<c>] [<d>] go <w> [<x>] [<y>] [<z>]": Function(mark_block),
@@ -238,7 +239,7 @@ Breathe.add_commands(
         "control slap": Key("c-enter"),
         "(bolder|boulder) [that]": Key("c-b"),
         "italics [that]": Key("c-i"),
-        "(nope | undo) [<n>]": Key("c-z:%(n)d"),
+        "undo [<n>]": Key("c-z:%(n)d"),
         "preev (window | win)": Key("a-tab/10"),
         "preev file": Key("c-tab"),
         "say <text>": release + Text("%(text)s"),
@@ -247,7 +248,7 @@ Breathe.add_commands(
         "new (thing | file)": Key("c-n"),
         "file save": Key("c-s"),
         "file open": Key("c-o"),
-        "it'slock": Key("capslock"),
+        "(lift | it'slock)": Key("capslock"),
 
         ### custom vocabulary
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),
