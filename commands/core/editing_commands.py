@@ -28,6 +28,15 @@ def mark_block(a, w, b=None, c=None, d=None, x=None, y=None, z=None):
 #     Key("shift:down").execute()
 #     Key("down:" + str(m - n + 1)).execute()
 
+def acronym(c1, c2, c3=None, c4=None, c5=None, c6=None):
+    acro = ""
+    acro += character.NAMED_CHARACTER_MAP[c1].upper()
+    acro += character.NAMED_CHARACTER_MAP[c2].upper()
+    acro += character.NAMED_CHARACTER_MAP[c3].upper() if c3 else ""
+    acro += character.NAMED_CHARACTER_MAP[c4].upper() if c4 else ""
+    acro += character.NAMED_CHARACTER_MAP[c5].upper() if c5 else ""
+    acro += character.NAMED_CHARACTER_MAP[c6].upper() if c6 else ""
+    Text(acro).execute()
 
 #---------------------------------------------------------------------------
 # Here we globally defined the release action which releases all modifier-keys used within this grammar.  It is defined here
@@ -181,7 +190,7 @@ Breathe.add_commands(
         "eeks": Key("space, equal, equal, space"),
         "(not eeks | nodeeks)": Key("space, bang, equal, space"),
         "(spacebar | space bar) space": Text(" | "),
-        "here (add | had)": Key("space, plus, space"),
+        "here (plus | add | had)": Key("space, plus, space"),
         "here minus": Key("space, hyphen, space"),
         "here times": Key("space, asterisk, space"),
         "here divide": Key("space, slash, space"),
@@ -190,6 +199,8 @@ Breathe.add_commands(
         "greater equals": Key("space, rangle, equal, space"),
         "less than": Key("space, langle, space"),
         "less equals": Key("space, langle, equal, space"),
+        "plus assign": Key("space, plus, equal, space"),
+        "minus assign": Key("space, dash, equal, space"),
 
         ### Lines
         "end chuck": release + Key("s-end, del"), # del from cursor to line end
@@ -200,7 +211,7 @@ Breathe.add_commands(
         "head cut": release + Key("s-home, c-x"), # cut from cursor to line home
         "wipe [<n>]": Key("end, home:2, s-down:%(n)d, del"), # del lines down
         "wipe up [<n>]": release + Key("end, home:2, s-up:%(n)d, s-home, del"), # del lines up
-        "line chuck": Key("end, home:2, s-end, del"), # del everything on the line except the newline
+        "line clear": Key("end, home:2, s-end, del"), # del everything on the line except the newline
         "line copy [<n>]": release + Key("end, home:2, s-down:%(n)d, c-c, up"), # copy lines down
         "line cut [<n>]": release + Key("end, home:2, s-down:%(n)d, c-x"), # cut lines down
         "line select [<n>]": release + Key("end, home:2, s-down:%(n)d"), # select lines down
@@ -227,9 +238,10 @@ Breathe.add_commands(
         "shell copy": release + Key("cs-c"), # copy
         "cut": release + Key("c-x"), # cut
         "tarp": release + Key("c-a"), # select all
-        "transfer": release + Key("c-a") + Key("c-x"),
+        # "transfer": release + Key("c-a") + Key("c-x"),
 
         "sky <letters_ref>": Function(convert_to_upper),
+        "acro <c1> <c2> [<c3>] [<c4>] [<c5>] [<c6>]": Function(acronym),
         "(Mark | mark)": Key("shift:down"),
         "(Mark | mark) up": Key("shift:up"),
         "(Mark | mark) [from] <a> [<b>] [<c>] [<d>] go <w> [<x>] [<y>] [<z>]": Function(mark_block),
@@ -268,5 +280,11 @@ Breathe.add_commands(
 
         Dictation("text"),
         letters_reference,  # see definition of 'convert_to_upper()'
+        Alternative(character.letter_number_alternatives, name="c1"),
+        Alternative(character.letter_number_alternatives, name="c2"),
+        Alternative(character.letter_number_alternatives, name="c3"),
+        Alternative(character.letter_number_alternatives, name="c4"),
+        Alternative(character.letter_number_alternatives, name="c5"),
+        Alternative(character.letter_number_alternatives, name="c6"),
     ]
 )

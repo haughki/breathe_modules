@@ -219,6 +219,46 @@ character_alternatives = (
 )
 
 
+letter_number_alternatives = (
+	Literal(A),
+	Literal(B),
+	Literal(C),
+	Literal(D),
+	Literal(E),
+	Literal(F),
+	Literal(G),
+	Literal(H),
+	Literal(I),
+	Literal(J),
+	Literal(K),
+	Literal(L),
+	Literal(M),
+	Literal(N),
+	Literal(O),
+	Literal(P),
+	Literal(Q),
+	Literal(R),
+	Literal(S),
+	Literal(T),
+	Literal(U),
+	Literal(V),
+	Literal(W),
+	Literal(X),
+	Literal(Y),
+	Literal(Z),
+	Literal("zero"),
+	Literal("one"),
+	Literal("two"),
+	Literal("three"),
+	Literal("four"),
+	Literal("five"),
+	Literal("six"),
+	Literal("seven"),
+	Literal("eight"),
+	Literal("nine"),
+)
+
+
 _base_char_map = {
 	A : "a",
 	B : "b",

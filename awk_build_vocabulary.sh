@@ -33,7 +33,7 @@ BEGIN {
     }
 }
 
-/}/ {
+/^    }/ {
     if (in_mapping) {
         in_mapping = 0
     }

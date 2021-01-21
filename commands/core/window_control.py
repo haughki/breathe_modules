@@ -44,10 +44,12 @@ config = Config("Window control")
 config.lang                = Section("Language section")
 config.lang.focus_win      = Item("focus <win_selector>",
                                   doc="Bring a named window to the foreground. 'focus chrome'")
+config.lang.transfer_win   = Item("transfer <win_selector>",
+                                  doc="Copy all of the text in the current window, focus the target window, And paste. 'transfer anki'")
 config.lang.focus_title    = Item("focus title <text>",
                                   doc="Bring a window with a given title (or title fraction) to the foreground. 'focus chrome google maps'")
 config.lang.place_win      = Item("place <win_selector> (<position> [on <mon_selector>] | on <mon_selector>)",
-                              doc="Move a window to a monitor or to a location on a monitor. 'place chrome on 2' or 'place chrome top on 2'")
+                                  doc="Move a window to a monitor or to a location on a monitor. 'place chrome on 2' or 'place chrome top on 2'")
 config.lang.nudge_win      = Item("nudge <win_selector> <direction> [<nudge_multiplier>]",
                                   doc="Nudge a window in a direction. 'nudge chrome right 6'")
 config.lang.resize_win     = Item("resize <win_selector> [from] <position> [to] <position> [on <mon_selector>]",
@@ -166,6 +168,12 @@ class WinSelectorRule(CompoundRule):
 
 
 win_selector = RuleRef(WinSelectorRule(), name="win_selector")
+
+""" Copy the contents of the current window to the target window. """
+def transfer_win(win_selector=None):
+    Key("c-a, c-c").execute()
+    focus_win(win_selector)
+    # Key("c-v").execute()
 
 """ Focus a Window """
 def focus_win(win_selector=None, app_name=None):
@@ -522,6 +530,7 @@ Breathe.add_commands(
     {
         "<app_name>": Function(focus_win),
         config.lang.focus_win: Function(focus_win),
+        config.lang.transfer_win: Function(transfer_win),
         config.lang.place_win: Function(place_win),
         config.lang.nudge_win: Function(nudge_win),
         config.lang.resize_win: Function(resize_win),
@@ -530,7 +539,11 @@ Breathe.add_commands(
     },
     extras = [
         # "focus" shortcuts for certain high usage applications
-        Alternative((Literal("note"), Literal("chrome")), "app_name"),
+        Alternative((
+            Literal("breathe"),
+            Literal("anki"),
+            Literal("note"),
+            Literal("chrome")), "app_name"),
         win_selector,
         mon_selector,
         position,

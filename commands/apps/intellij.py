@@ -85,8 +85,8 @@ Breathe.add_commands(
         "quick definition": Key("cs-i"),
         "quick (documentation | docs)": Key("c-q"),
         "toggle (book | bookmark)": Key("f7"),
-        "next (book | bookmark)": Key("cs-n"),
-        "(prev | previous) book": Key("cs-p"),
+        "next (book | bookmark) [<n>]": Key("cs-o:%(n)d"),
+        "(prev | previous) book [<n>]": Key("cs-p:%(n)d"),
         "expand": Key("c-npadd"),
         "collapse": Key("c-npsub"),
 
