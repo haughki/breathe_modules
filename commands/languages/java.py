@@ -99,7 +99,7 @@ def else_if(casing=utils.camel, text=None):
         (Text(" else if () {") + Key("enter,up,c-right:3")).execute()
 
 
-INTELLIJ_POPUP_DELAY = "10"
+INTELLIJ_POPUP_DELAY = "35"
 Breathe.add_commands(
     context = AppContext(title=".java") | CommandContext("java"),
     mapping = {

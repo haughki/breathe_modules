@@ -64,10 +64,12 @@ ordinal_map = {"second":2, "third":3, "fourth":4, "fifth":5, "sixth":6}
 Breathe.add_commands(
     None,
     mapping = {
-        "scan [(second | third | fourth | fifth | sixth)] (<dictation_to_find> | " + character.CHARACTER_ALTERNATIVES + ") [replace] [<replace_with_me>]": Function(lineSearch),
+        "scan [(second | third | fourth | fifth | sixth)] (<dictation_to_find> | <character_alternatives>) [replace] [<replace_with_me>]": Function(lineSearch),
     },
-    extras = [Dictation("dictation_to_find"),
-              Dictation("replace_with_me"),
+    extras = [
+        Alternative(character.character_alternatives, name="character_alternatives"),
+        Dictation("dictation_to_find"),
+        Dictation("replace_with_me"),
     ],
     defaults = {"dictation_to_find":"",
                 "replace_with_me":"",

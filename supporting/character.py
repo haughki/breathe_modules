@@ -45,103 +45,103 @@ LPAREN3     = "el paren"
 RPAREN      = "hype"
 RPAREN2     = "are paren"
 
-A = "Alpha"
-B = "Bravo"
-C = "Charlie"
-D = "Delta"
-E = "Echo"
-F = "Foxtrot"
-G = "Gumbo"
-H = "Honda"
-I = "Igloo"
-J = "Juneau"
-K = "Kilo"
-L = "Lima"
-M = "Monty"
-N = "Ninja"
-O = "Oscar"
-P = "Papa"
+# A = "Alpha"
+# B = "Bravo"
+# C = "Charlie"
+# D = "Delta"
+# E = "Echo"
+# F = "Foxtrot"
+# G = "Gumbo"
+# H = "Honda"
+# I = "Igloo"
+# J = "Juneau"
+# K = "Kilo"
+# L = "Lima"
+# M = "Monty"
+# N = "Ninja"
+# O = "Oscar"
+# P = "Papa"
+# Q = "Quinn"
+# R = "Robin"
+# S = "Soda"
+# T = "Tango"
+# U = "Urdu"
+# V = "Victor"
+# W = "Whiskey"
+# X = "X-ray"
+# Y = "Yankee"
+# Z = "Zulu"
+
+
+A = "Alf"
+B = "beat"
+C = "chow"
+D = "DEET"
+E = "each"
+F = "fate"
+G = "gut"
+H = "hop"
+I = "ice"
+J = "jug"
+K = "Kate"
+L = "Lee"
+M = "Mao"
+N = "neat"
+O = "odd"
+P = "Poe"
 Q = "Quinn"
-R = "Robin"
-S = "Soda"
-T = "Tango"
-U = "Urdu"
-V = "Victor"
-W = "Whiskey"
-X = "X-ray"
-Y = "Yankee"
-Z = "Zulu"
+R = "route"
+R2 = "root"
+S = "suit"
+T = "Tang"
+U = "urge"
+V = "vote"
+W = "weed"
+X = "decks"
+Y = "yak"
+Z = "zip"
 
+letter_number_alternatives = (
+	Literal(A),
+	Literal(B),
+	Literal(C),
+	Literal(D),
+	Literal(E),
+	Literal(F),
+	Literal(G),
+	Literal(H),
+	Literal(I),
+	Literal(J),
+	Literal(K),
+	Literal(L),
+	Literal(M),
+	Literal(N),
+	Literal(O),
+	Literal(P),
+	Literal(Q),
+	Literal(R),
+	Literal(R2),
+	Literal(S),
+	Literal(T),
+	Literal(U),
+	Literal(V),
+	Literal(W),
+	Literal(X),
+	Literal(Y),
+	Literal(Z),
+	Literal("zero"),
+	Literal("one"),
+	Literal("two"),
+	Literal("three"),
+	Literal("four"),
+	Literal("five"),
+	Literal("six"),
+	Literal("seven"),
+	Literal("eight"),
+	Literal("nine"),
+)
 
-
-#CHARACTER_ALTERNATIVES = SPACE + " | " + AMPERSAND + " | " + APOSTROPHE + " | " + ASTERISK + " | " + AT + " | " + BACKSLASH + " | " + BACKTICK + " | " + BAR + " | " + CARET + " | " + COLON + " | " + HYPHEN + " | " + COMMA + " | " + DOLLAR + " | " + DOT + " | " + DQUOTE + " | " + EQUAL + " | " + EXCLAMATION + " | " + HASH + " | " + POUND + " | " + PERCENT + " | " + PLUS + " | " + QUESTION + " | " + SLASH + " | " + SQUOTE + " | " + TILDE + " | " + UNDERSCORE + " | " + SEMICOLON + " | " + LANGLE + " | " + RANGLE + " | " + LBRACE + " | " + RBRACE + " | " + LBRACKET + " | " + RBRACKET + " | " + LPAREN + " | " + LPAREN2 + " | " + LPAREN3 + " | " + RPAREN + " | " + RPAREN2 + " | " + A + " | " + B + " | " + C + " | " + D + " | " + E + " | " + F + " | " + G + " | " + H + " | " + I + " | " + J + " | " + K + " | " + L + " | " + M + " | " + N + " | " + O + " | " + P + " | " + Q + " | " + R + " | " + S + " | " + T + " | " + U + " | " + V + " | " + W + " | " + X + " | " + Y + " | " + Z + " | zero | one | two | three | four | five | six | seven | eight | nine"
-CHARACTER_ALTERNATIVES = SPACE + " | " + \
-						 AMPERSAND + " | " + \
-						 APOSTROPHE + " | " + \
-						 ASTERISK + " | " + \
-						 AT + " | " + \
-						 BACKSLASH + " | " + \
-						 BACKTICK + " | " + \
-						 BAR + " | " + \
-						 CARET + " | " + \
-						 COLON + " | " + \
-						 HYPHEN + " | " + \
-						 COMMA + " | " + \
-						 DOLLAR + " | " + \
-						 DOT + " | " + \
-						 DQUOTE + " | " + \
-						 EQUAL + " | " + \
-						 EXCLAMATION + " | " + \
-						 HASH + " | " + \
-						 POUND + " | " + \
-						 PERCENT + " | " + \
-						 PLUS + " | " + \
-						 QUESTION + " | " + \
-						 SLASH + " | " + \
-						 SQUOTE + " | " + \
-						 TILDE + " | " + \
-						 UNDERSCORE + " | " + \
-						 SEMICOLON + " | " + \
-						 LANGLE + " | " + \
-						 RANGLE + " | " + \
-						 LBRACE + " | " + \
-						 RBRACE + " | " + \
-						 LBRACKET + " | " + \
-						 RBRACKET + " | " + \
-						 LPAREN + " | " + \
-						 LPAREN2 + " | " + \
-						 LPAREN3 + " | " + \
-						 RPAREN + " | " + \
-						 RPAREN2 + " | " + \
-						 A + " | " + \
-						 B + " | " + \
-						 C + " | " + \
-						 D + " | " + \
-						 E + " | " + \
-						 F + " | " + \
-						 G + " | " + \
-						 H + " | " + \
-						 I + " | " + \
-						 J + " | " + \
-						 K + " | " + \
-						 L + " | " + \
-						 M + " | " + \
-						 N + " | " + \
-						 O + " | " + \
-						 P + " | " + \
-						 Q + " | " + \
-						 R + " | " + \
-						 S + " | " + \
-						 T + " | " + \
-						 U + " | " + \
-						 V + " | " + \
-						 W + " | " + \
-						 X + " | " + \
-						 Y + " | " + \
-						 Z + " | zero | one | two | three | four | five | six | seven | eight | nine"
-
-
-character_alternatives = (
+character_alternatives = letter_number_alternatives + (
 	Literal(SPACE),
 	Literal(AMPERSAND),
 	Literal(APOSTROPHE),
@@ -180,84 +180,7 @@ character_alternatives = (
 	Literal(LPAREN3),
 	Literal(RPAREN),
 	Literal(RPAREN2),
-	Literal(A),
-	Literal(B),
-	Literal(C),
-	Literal(D),
-	Literal(E),
-	Literal(F),
-	Literal(G),
-	Literal(H),
-	Literal(I),
-	Literal(J),
-	Literal(K),
-	Literal(L),
-	Literal(M),
-	Literal(N),
-	Literal(O),
-	Literal(P),
-	Literal(Q),
-	Literal(R),
-	Literal(S),
-	Literal(T),
-	Literal(U),
-	Literal(V),
-	Literal(W),
-	Literal(X),
-	Literal(Y),
-	Literal(Z),
-	Literal("zero"),
-	Literal("one"),
-	Literal("two"),
-	Literal("three"),
-	Literal("four"),
-	Literal("five"),
-	Literal("six"),
-	Literal("seven"),
-	Literal("eight"),
-	Literal("nine"),
 )
-
-
-letter_number_alternatives = (
-	Literal(A),
-	Literal(B),
-	Literal(C),
-	Literal(D),
-	Literal(E),
-	Literal(F),
-	Literal(G),
-	Literal(H),
-	Literal(I),
-	Literal(J),
-	Literal(K),
-	Literal(L),
-	Literal(M),
-	Literal(N),
-	Literal(O),
-	Literal(P),
-	Literal(Q),
-	Literal(R),
-	Literal(S),
-	Literal(T),
-	Literal(U),
-	Literal(V),
-	Literal(W),
-	Literal(X),
-	Literal(Y),
-	Literal(Z),
-	Literal("zero"),
-	Literal("one"),
-	Literal("two"),
-	Literal("three"),
-	Literal("four"),
-	Literal("five"),
-	Literal("six"),
-	Literal("seven"),
-	Literal("eight"),
-	Literal("nine"),
-)
-
 
 _base_char_map = {
 	A : "a",
@@ -278,6 +201,7 @@ _base_char_map = {
 	P : "p",
 	Q : "q",
 	R : "r",
+	R2 : "r",
 	S : "s",
 	T : "t",
 	U : "u",

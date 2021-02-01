@@ -1,52 +1,58 @@
 from dragonfly import *
+from breathe import *
 from reimport import reimport
 
 from supporting import utils, character
 from commands.languages import specs, python_bindings
 
 
-
-reload_these = (
+rebuild_these = (
     utils,
     character,
     specs,
     python_bindings
 )
 
-def extrasReloader():
-    print "Reloading extras..."
-    for reload_me in reload_these:
-        print(reload_me)
-        reimport(reload_me)
+def rebuild_all():
+    extras_rebuilder()
+    Breathe.reload_modules()
+    Key("npadd/10,npadd").execute() # toggle microphone to rebuild non-breathe modules.
+
+def extras_rebuilder():
+    print "Rebuilding extras..."
+    for rebuild_me in rebuild_these:
+        print(rebuild_me)
+        reimport(rebuild_me)
     utils.toggleMicrophone()
 
-# def specsReloader():
-#     print "Reloading specs..."
+# def specsRebuilder():
+#     print "Rebuilding specs..."
 #     reimport(specs)
 #     utils.toggleMicrophone()
 #
-# def characterReloader():
-#     print "Reloading character..."
+# def characterRebuilder():
+#     print "Rebuilding character..."
 #     reimport(character)
 #     utils.toggleMicrophone()
 #
-# def utilsReloader():
-#     print "Reloading utils..."
+# def utilsRebuilder():
+#     print "Rebuilding utils..."
 #     reimport(utils)
 #     utils.toggleMicrophone()
 
-class ReloadRule(MappingRule):
+class RebuildRule(MappingRule):
     mapping = {
-        "reload extras": Function(extrasReloader),
-        # "reload specs": Function(specsReloader),
-        # "reload character": Function(characterReloader),
-        # "reload utilities": Function(utilsReloader),
+        "rebuild extras": Function(extras_rebuilder),
+        "rebuild all": Function(rebuild_all),
+        # "rebuild specs": Function(specsRebuilder),
+        # "rebuild character": Function(characterRebuilder),
+        # "rebuild utilities": Function(utilsRebuilder),
     }
 
-reload_grammar = Grammar("reloading grammar")
-reload_grammar.add_rule(ReloadRule())
-reload_grammar.load()
+rebuild_grammar = Grammar("rebuilding grammar")
+rebuild_grammar.add_rule(RebuildRule())
+rebuild_grammar.load()
 
 def unload():
-    global reload_grammar
-    reload_grammar = utils.unloadHelper(reload_grammar, __name__)
+    global rebuild_grammar
+    rebuild_grammar = utils.unloadHelper(rebuild_grammar, __name__)
