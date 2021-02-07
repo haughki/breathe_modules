@@ -542,6 +542,7 @@ Breathe.add_commands(
         Alternative((
             Literal("breathe"),
             Literal("anki"),
+            Literal("code"),
             Literal("note"),
             Literal("chrome")), "app_name"),
         win_selector,
