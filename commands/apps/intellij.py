@@ -100,6 +100,7 @@ Breathe.add_commands(
 
         # Search.
         "replace [<text>]": Key("c-r/25") + Text("%(text)s"),
+        "replace next": Key("a-p"),
         "replace all": Key("a-a"),
         "show find": Key("c-f"),
         "find <text>": Key("c-f/25") + Text("%(text)s"),
