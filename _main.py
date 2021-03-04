@@ -18,6 +18,7 @@ modules = {
             "example",
             "put_string_commands",
             "scan_line",
+            "temp_extra",
             "text_formatting",
             "window_control",
         ],

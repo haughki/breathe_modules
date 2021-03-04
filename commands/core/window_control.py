@@ -13,12 +13,14 @@ To see data about the current available windows (including the actual names to u
 """
 window_map = {
     "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
+    "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
     "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
     "Python library": {"exe_name": "idea64", "title_hint": "python-code-library"},
     "Java library": {"exe_name": "idea64", "title_hint": "java-code-library"},
 
     "anki": {"exe_name": "anki.exe", "title_hint": ""},
     "chrome": {"exe_name": "", "title_hint": "Google Chrome"},   # Special hack to exclude Workona hidden tabs window from focus
+    "chat": {"exe_name": "chrome.exe", "title_hint": "Chat"},
     "code": {"exe_name": "", "title_hint": ""},
     "command": {"exe_name": "cmd", "title_hint": "command prompt"},
     "dragonpad": {"exe_name": "natspeak", "title_hint": "dragonpad"},
@@ -541,6 +543,7 @@ Breathe.add_commands(
         # "focus" shortcuts for certain high usage applications
         Alternative((
             Literal("breathe"),
+            Literal("peptide"),
             Literal("anki"),
             Literal("code"),
             Literal("note"),

@@ -84,5 +84,6 @@ Breathe.add_commands(
     ],
     defaults = {
         "t": 1,
+        "n": 1,
     }
 )

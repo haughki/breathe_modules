@@ -56,7 +56,7 @@ def selectAndMove(dest):
     Key("enter").execute()
 
 
-go_command = "(go | goat | goke | launch | lunch)"
+# go_command = "(go | goat | goke | launch | lunch)"
 click_by_voice_delay = "50"
 
 class GlobalChromeMappings(MappingRule):
@@ -67,8 +67,8 @@ class GlobalChromeMappings(MappingRule):
         "reopen tab": Key("cs-t"),
         "(next | nex) (tab | ab) [<n>]": Key("c-pgdown:%(n)d"),
         "(previous | preev) tab [<n>]": Key("c-pgup:%(n)d"),
-        "move [tab] right [<n>]": Key("cs-pgdown/10:%(n)d"),
-        "move [tab] left [<n>]": Key("cs-pgup/10:%(n)d"),
+        "move [tab] right [<n>]": Key("cs-pgdown/10:%(n)d"),   # rearrange tabs extension
+        "move [tab] left [<n>]": Key("cs-pgup/10:%(n)d"),      # rearrange tabs extension
         "show tab <tab>": Key("c-%(tab)d"),
         "Gmail": Key("c-2"),
         "calendar": Key("c-3"),
@@ -87,22 +87,22 @@ class GlobalChromeMappings(MappingRule):
         "(full-screen | full screen)": Key("f11"),
 
         # Click By Voice
-        "open <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumber) + Key("enter"),  # click by voice
-        "open focus <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberFocus) + Key("enter"),  # click by voice
-        "open click <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberClick) + Key("enter"),  # click by voice
-        go_command + " <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberToTab) + Key("enter"),  # click by voice
-        go_command + " tab <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberGoToTab) + Key("enter"),  # click by voice
-        go_command + " window <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberGoToWindow) + Key("enter"),  # click by voice
-        "hide hints": Key("cs-space/" + click_by_voice_delay) + Text(":-") + Key("enter"),  # click by voice
-        "show hints": Key("cs-space/" + click_by_voice_delay) + Text(":+") + Key("enter"),  # click by voice
-        "high contrast": Key("cs-space/" + click_by_voice_delay) + Text(":+c") + Key("enter"),  # click by voice
+        # "open <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumber) + Key("enter"),  # click by voice
+        # "open focus <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberFocus) + Key("enter"),  # click by voice
+        # "open click <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberClick) + Key("enter"),  # click by voice
+        # go_command + " <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberToTab) + Key("enter"),  # click by voice
+        # go_command + " tab <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberGoToTab) + Key("enter"),  # click by voice
+        # go_command + " window <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumberGoToWindow) + Key("enter"),  # click by voice
+        # "hide hints": Key("cs-space/" + click_by_voice_delay) + Text(":-") + Key("enter"),  # click by voice
+        # "show hints": Key("cs-space/" + click_by_voice_delay) + Text(":+") + Key("enter"),  # click by voice
+        # "high contrast": Key("cs-space/" + click_by_voice_delay) + Text(":+c") + Key("enter"),  # click by voice
 
         # Vimium
         "open": Key("f"),
         "tabs": Key("s-f"),
         "get Earl": Key("y,y"),  # copy the current url to the clipboard
         "get link Earl": Key("y,f"),  # copy a link url to the clipboard
-        go_command + " <w> [<x>] [<y>] [<z>]": Function(vimPrintNumber),             # vimium
+        # go_command + " <w> [<x>] [<y>] [<z>]": Function(vimPrintNumber),             # vimium
         # "(go | goat | goke | launch | lunch) <number>": Text("%(number)d"),        # vimium
         "(duplicate | dupe) tab": Key("y/25,t"),  # vimium
 
@@ -172,6 +172,7 @@ class GmailMappings(MappingRule):
         "[move] [to] waiting [for response]": Function(selectAndMove, dest="aa_todo/waiting for response"),
 
         "move [to] inbox": Function(selectAndMove, dest="inbox"),
+        "[move] [to] follow-up": Function(selectAndMove, dest="follow-up"),
         "[move] [to] receipts": Function(selectAndMove, dest="aa_receipts"),
         "[move] [to] donations": Function(selectAndMove, dest="aa_receipts/donations"),
         "[move] [to] expenses": Function(selectAndMove, dest="aa_receipts/expenses"),
