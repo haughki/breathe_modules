@@ -13,6 +13,8 @@ To see data about the current available windows (including the actual names to u
 """
 window_map = {
     "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
+    "daily tasks": {"exe_name": "wordpad.exe", "title_hint": "daily tasks"},
+    "questions": {"exe_name": "wordpad.exe", "title_hint": "running questions"},
     "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
     "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
     "Python library": {"exe_name": "idea64", "title_hint": "python-code-library"},
@@ -33,6 +35,7 @@ window_map = {
     "note": {"exe_name": "notepad", "title_hint": "Notepad"},
     "word pad": {"exe_name": "wordpad.exe", "title_hint": ""},
     "slack": {"exe_name": "", "title_hint": ""},
+    "snag it": {"exe_name": "SnagitEditor.exe", "title_hint": ""},
     "task manager": {"exe_name": "taskmgr", "title_hint": "Windows Task Manager"},
     "ooboo": {"exe_name": "ubuntu", "title_hint": ""},
     "Ubuntu": {"exe_name": "ubuntu", "title_hint": ""},

@@ -85,6 +85,9 @@ class GlobalChromeMappings(MappingRule):
         "find (prev | previous)": Key("s-enter"),
         "bookmark page": Key("c-d"),
         "(full-screen | full screen)": Key("f11"),
+        "show history": Key("c-h"),
+        "leave address": Key("f6/35, f6/35, f6/35, f6"),
+        # "leave address": Key("u, enter"),
 
         # Click By Voice
         # "open <w> [<x>] [<y>] [<z>]": Key("cs-space/" + click_by_voice_delay) + Function(printNumber) + Key("enter"),  # click by voice

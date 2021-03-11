@@ -100,6 +100,7 @@ Breathe.add_commands(
         character.POUND       + " [<n>]": Key("hash:%(n)d"),
         character.PERCENT     + " [<n>]": Key("percent:%(n)d"),
         character.PLUS        + " [<n>]": Key("plus:%(n)d"),
+        character.PRINTSCREEN + " [<n>]": Key("printscreen:%(n)d"),
         character.QUESTION    + " [<n>]": Key("question:%(n)d"),
         character.SLASH       + " [<n>]": Key("slash:%(n)d"),
         character.SQUOTE      + " [<n>]": Key("squote:%(n)d"),

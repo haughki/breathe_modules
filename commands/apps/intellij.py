@@ -108,6 +108,8 @@ Breathe.add_commands(
         "find (prev | previous) [<n>]": Key("s-f3:%(n)d"),
         "find [in | and] files": Key("cs-f"),
         "find usages": Key("a-f7"),
+        "match case": Key("a-c"),
+        "match word": Key("a-w"),
 
         # Code
         "show intentions": Key("a-enter"),
@@ -128,7 +130,7 @@ Breathe.add_commands(
         # "line jump": Key("cs-semicolon"),
 
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/50") + Function(utils.printNumber)+ Key("enter"),
-        "comment [line | that | it]": Key("c-slash"),
+        "comment": Key("c-slash"),
         "show white space": Key("cs-w"),
         "redo": Key("cs-z"),
         "move line up [<n>]": Key("c-up:%(n)d"),
