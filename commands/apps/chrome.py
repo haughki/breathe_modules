@@ -174,6 +174,12 @@ class GmailMappings(MappingRule):
         "[move] [to] someday": Function(selectAndMove, dest="aa_todo/someday"),
         "[move] [to] waiting [for response]": Function(selectAndMove, dest="aa_todo/waiting for response"),
 
+        # Genentech
+        "move to peptide": Function(selectAndMove, dest="PRS"),
+        "label peptide": Key("g,l/20") + Text("PRS") + Key("enter"),
+        "temp": Function(selectAndMove, dest="temp"),
+
+
         "move [to] inbox": Function(selectAndMove, dest="inbox"),
         "[move] [to] follow-up": Function(selectAndMove, dest="follow-up"),
         "[move] [to] receipts": Function(selectAndMove, dest="aa_receipts"),
@@ -284,6 +290,30 @@ class TickTickMappings(MappingRule):
         "n": 1,
     }
 
+class GoogleDocsMappings(MappingRule):
+
+    mapping = {
+        # "new task": Key("tab:down/25, n/25, tab:up"),
+        # "save task": Key("c-s"),
+        # "(complete | done) task": Key("tab:down/25, m/25, tab:up"),
+        "Add bullets": Key("cs-8"),
+        "heading one": Key("ca-1"),
+        "heading two": Key("ca-2"),
+        "heading three": Key("ca-3"),
+        "heading four": Key("ca-4"),
+        "heading five": Key("ca-5"),
+        "heading six": Key("ca-6"),
+    }
+
+    extras = [
+        Dictation("text"),
+        Integer("n", 1, 50),
+    ]
+
+    defaults = {
+        "n": 1,
+    }
+
 
 chrome_context = AppContext(executable="chrome")
 # gmail_context = AppContext(executable="chrome", title="- Gmail")
@@ -293,6 +323,7 @@ chrome_grammar.add_rule(GlobalChromeMappings())
 chrome_grammar.add_rule(GmailMappings())
 # chrome_grammar.add_rule(OpenGmailLineRule())  # Requires Dragon Chrome extension, which I'm not using: disabling
 chrome_grammar.add_rule(TickTickMappings())
+chrome_grammar.add_rule(GoogleDocsMappings())
 # chrome_grammar.add_rule(NavigateCalendarWeeks())
 chrome_grammar.load()
 

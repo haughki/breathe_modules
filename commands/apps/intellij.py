@@ -42,6 +42,7 @@ Breathe.add_commands(
     mapping = {
         # Code execution.
         "run app": Key("s-f10"),
+        "stop app": Key("c-f2"),
         "debug app": Key("s-f9"),
         "re-run app": Key("c-f5"),
         "run this [app]": Key("cs-f10"),

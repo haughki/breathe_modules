@@ -41,8 +41,8 @@ Breathe.add_commands(
         "[show] white space": Key("cs-w"),
         "word wrap": Key("cs-d"),
         "comment [line | that | it]": Key("c-slash"),
-        "scroll up [<n>]": Key("a-up:%(n)d"),
-        "scroll down [<n>]": Key("a-down:%(n)d"),
+        # "scroll up [<n>]": Key("a-up:%(n)d"),      # Something about these two scroll commands causes NatLink to hang when I switch to VS code
+        # "scroll down [<n>]": Key("a-down:%(n)d"),  # Something about these two scroll commands causes NatLink to hang when I switch to VS code
         "move line up [<n>]": Key("c-up:%(n)d"),
         "move line down [<n>]": Key("c-down:%(n)d"),
 
