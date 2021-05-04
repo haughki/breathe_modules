@@ -40,7 +40,7 @@ window_map = {
     "ooboo": {"exe_name": "ubuntu", "title_hint": ""},
     "Ubuntu": {"exe_name": "ubuntu", "title_hint": ""},
     "virtual": {"exe_name": "virtualbox", "title_hint": "ubuntu-desktop"},
-    "wind term": {"exe_name": "WindowsTerminal.exe", "title_hint": ""},
+    "term": {"exe_name": "WindowsTerminal.exe", "title_hint": ""},
     "Windows get": {"exe_name": "mintty", "title_hint": ""},
     "word": {"exe_name": "winword", "title_hint": ""},
 }
@@ -546,7 +546,6 @@ Breathe.add_commands(
         # "focus" shortcuts for certain high usage applications
         Alternative((
             Literal("breathe"),
-            Literal("peptide"),
             Literal("anki"),
             Literal("code"),
             Literal("note"),

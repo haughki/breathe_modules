@@ -1,6 +1,8 @@
 from commands.imports import *
 from supporting import utils
 
+windows_home = "/mnt/c/Users/parkeh1"
+
 def build_context(mc, terminal_default):
     return ContextAction(
         default=None, actions=
@@ -21,18 +23,23 @@ Breathe.add_commands(
         "preev tab [<t>]": Key("cs-tab"),
         # "move tab right [<t>]": Key("cas-right/5:%(t)d"),
         # "move tab left [<t>]": Key("cas-left/5:%(t)d"),
-        "close tab": Key("c-w"),
+        "close tab": Key("c-f4"),
 
         # "show find": Key("cs-f"),
         # "find next [<n>]": Key("f3:%(n)d"),
         # "find (prev | previous) [<n>]": Key("s-f3:%(n)d"),
 
         # directories
-        "project[s]": Text("proj") + Key("enter"),
-        "Windows temp": Text("dtemp") + Key("enter"),
-        "hawk user": Text("hawk") + Key("enter"),
-        "mount delta": Text("/mnt/d/"),
-        "mount Charlie": Text("/mnt/c/"),
+        "projects": Text("cd ~/projects") + Key("enter"),
+
+        "win home": Text("winhome") + Key("enter"),
+        "put win home": Text(windows_home),
+        "win projects": Text("winproj") + Key("enter"),
+        "put win projects": Text(windows_home + "/projects"),
+        "win temp": Text("wintmp") + Key("enter"),
+        "put win temp": Text(windows_home + "/temp"),
+        # "win root chow": Text("/mnt/c/"),
+        # "win root drum": Text("/mnt/d/"),
 
         # midnight commander
         "go command": Key("c-o"),
