@@ -13,6 +13,7 @@ To see data about the current available windows (including the actual names to u
 """
 window_map = {
     "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
+    "note": {"exe_name": "wordpad.exe", "title_hint": "voice working"},
     "daily tasks": {"exe_name": "wordpad.exe", "title_hint": "daily tasks"},
     "questions": {"exe_name": "wordpad.exe", "title_hint": "running questions"},
     "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
@@ -32,7 +33,7 @@ window_map = {
     "Indeni": {"exe_name": "virtualbox", "title_hint": "indeni server"},
     "mobile": {"exe_name": "mobaxterm", "title_hint": ""},
     "NatLink": {"exe_name": "natspeak", "title_hint": "messages from Natlink"},
-    "note": {"exe_name": "notepad", "title_hint": "Notepad"},
+    "Notepad": {"exe_name": "notepad", "title_hint": "Notepad"},
     "word pad": {"exe_name": "wordpad.exe", "title_hint": ""},
     "slack": {"exe_name": "", "title_hint": ""},
     "snag it": {"exe_name": "SnagitEditor.exe", "title_hint": ""},
