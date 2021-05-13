@@ -17,55 +17,60 @@ def P(*args, **kws):
 def M(*args, **kws):
     return Mouse(*args, **kws)
 
-def printUpDir(w):
+def printUpDir(w=1):
     cd_command = "cd "
     for i in range(w):
         cd_command += "../"
     Text(cd_command).execute()
+    Key("enter").execute()
 
 Breathe.add_commands(
     # mintty is git bash, git for Windows
     context=AppContext(executable='ubuntu') | AppContext(executable='mobaxterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
-        "short list": Text("ls") + Key("enter"),
-        "go home": Text("cd ~") + Key("enter"),
-        "line (chuck | clear)": Key("c-a") + Key("c-k"),
-        # "(arg | argument) clear": Key("c-w"),
-        "to Jason": Text(" | python -m json.tool") + Key("enter"),
-
-        "swat": Key("c-w"),
+        # directories
+        "direct home": Text("cd ~") + Key("enter"),
+        "direct temp": T("cd ~/temp") + K("enter"),
+        "direct projects": Text("cd ~/projects") + Key("enter"),
+        "direct registration": T("cd ~/projects/cdd_peptide_reg") + K("enter"),
 
         "apt get clean": T("apt-get clean"),
         "apt get install": T("apt-get install "),
         "apt get update": T("apt-get update"),
         "apt get upgrade": T("apt-get upgrade"),
+        "clear arg": Key("c-w"),
+        "clear line": Key("c-a") + Key("c-k"),
         "break": K("c-c"),
         "cat": T("cat "),
         # "Clyde copy": T("cp "),
         "do copy": T("cp "),
+        "do copy recursive": T("cp -r "),
         "chai": T("cd "),
         "chai <text>": T("cd %(text)s") + K("tab,enter"),
         "chai chain <text>": T("cd %(text)s") + K("tab:3"),
         "chain <text>": T("%(text)s") + K("tab:3"),
-        "chai up": T("cd ..\n"),
         "chai up [<w>]": Function(printUpDir),  # + Key("enter")
         # "chaif <common_folder>": T("cd %(common_folder)s\n"),
-        # "echo": T("echo "),
+        "echo": T("echo "),
         # "echo path": T("echo $PATH\n"),
         "environment": T("env\n"),
         # "<grep>": T("%(grep)s -rin -B2 -A2 '' .") + K("left:3"),
         # "<grep> <text>": T("%(grep)s -rin -B2 -A2 '%(text)s' .\n"),
-        "grep": T("grep -rin -B2 -A2 '' .") + K("left:3"),
+        "grep": T("grep "),
+        "grep long": T("grep -rin -B2 -A2 '' .") + K("left:3"),
         "grep <text>": T("grep -rin -B2 -A2 '%(text)s' .\n"),
         "info documentation": T("info "),
         "jobs": T("jobs -l\n"),
         "jobs running": T("jobs -lr\n"),
         "jobs stopped": T("jobs -ls\n"),
-        "list": T("ls -la\n"),
-        "list <text>": T("ls -la %(text)s") + K("tab,enter"),
-        "list chain <text>": T("ls -la %(text)s") + K("tab:3"),
-        "list up": T("ls -la ..\n"),
-        "list up up": T("ls -la ../..\n"),
+        "less": T("less "),
+        "list": T("ls -al\n"),
+        "list short": Text("ls") + Key("enter"),
+        "list filter": T("ls -al | grep "),
+        "list <text>": T("ls -al %(text)s") + K("tab,enter"),
+        "list chain <text>": T("ls -al %(text)s") + K("tab:3"),
+        "list up": T("ls -al ..\n"),
+        "list up up": T("ls -al ../..\n"),
         "locate": T("locate "),
         "man page": T("man "),
         "make directory": T("mkdir "),
@@ -75,19 +80,21 @@ Breathe.add_commands(
         "move": T("mv "),
         "move <text>": T("mv %(text)s"),
         "move <text> to [<text2>]": T("mv %(text)s") + K("tab") + T(" %(text2)s") + K("tab"),
+        "processes": T("ps aux\n"),
+        "process grep": T('ps aux | egrep "PID|"'),
         "push (directory | chai)": T("pushd .\n"),
         "push other (directory | chai)": T("pushd "),
         "pop (directory | chai)": T("popd\n"),
         "(directory | chai) stack": T("dirs\n"),
         "print (working directory | chai)": T("pwd\n"),
         "remove": T("rm "),
-        "remove (directory | chai)": T("rmdir "),
-        "remove (directory | chai) recursively": T("rmdir -r"),
+        "remove directory": T("rmdir "),
+        "remove directory recursively": T("rmdir -r"),
         "run": T("./"),
         "run <text>": T("./%(text)s") + K("tab,enter"),
-        "(sudo | super [user] do)": T("sudo "),
+        "super do": T("sudo "),
         "switch user": T("su "),
-        "temp directory": T("cd ~/temp") + K("enter"),
+        "swat [<n>]": Key("c-w:%(n)d"),
         "time": T("time "),
         "trash": T("trash "),
         "who am I": T("whoami\n"),
@@ -97,19 +104,18 @@ Breathe.add_commands(
         "verbose flag short": T(" -v"),
 
         # tools
-        # "apt[itude] search": T("sudo aptitude search "),
-        # "apt[itude] install": T("sudo aptitude install "),
-        # "apt[itude] show": T("sudo aptitude show "),
-        # "apt[itude] update": T("sudo aptitude update\n"),
-        # "apt[itude] upgrade": T("sudo aptitude update && aptitude upgrade\n"),
-        "web get": T("wget "),
+        "Conda": T("conda "),
+        "get ": T("git "),
+        "get status": T("git status") + K("enter"),
+        "NPM": T("npm "),
+        "pip three install": T("pip3 install "),
+        "pip three uninstall": T("pip3 uninstall "),
+        "to Jason": Text(" | python -m json.tool") + Key("enter"),
         "vim": T("vim "),
         "vim <text>": T("vim %(text)s") + K("tab,enter"),
         "suvim": T("sudo vim "),
         "suvim <text>": T("sudo vim %(text)s") + K("tab,enter"),
-
-        "pip three install": T("pip3 install "),
-        "pip three uninstall": T("pip3 uninstall "),
+        "web get": T("wget "),
 
     },
 

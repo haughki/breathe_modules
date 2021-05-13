@@ -74,7 +74,7 @@ methods = {
     "append"                : "append",
     "apply"                 : "apply",
     "capitalise"            : "capitalize",
-    "clear"                 : "clear",
+    #"clear"                 : "clear",  # conflicts with other "clear" commands
     "copy"                  : "copy",
     "count"                 : "count",
     "ends with"             : "endswith",

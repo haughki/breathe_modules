@@ -1,7 +1,7 @@
 from commands.imports import *
 from supporting import utils, character
 
-# disabled -- see quote below
+
 def select_jump(c1, c2=None, c3=None):
     # print(str(c1) + "    " + str(c2)  + "    " + str(c3))
     c1 = character.NAMED_CHARACTER_MAP[c1] if c1 else None

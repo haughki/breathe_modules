@@ -24,14 +24,14 @@ Breathe.add_commands(
         # "move tab right [<t>]": Key("cas-right/5:%(t)d"),
         # "move tab left [<t>]": Key("cas-left/5:%(t)d"),
         "close tab": Key("c-f4"),
+        "new pane": Key("as-d"),
+        "close pane": Key("cs-w"),
 
         # "show find": Key("cs-f"),
         # "find next [<n>]": Key("f3:%(n)d"),
         # "find (prev | previous) [<n>]": Key("s-f3:%(n)d"),
 
         # directories
-        "projects": Text("cd ~/projects") + Key("enter"),
-
         "win home": Text("winhome") + Key("enter"),
         "put win home": Text(windows_home),
         "win projects": Text("winproj") + Key("enter"),
@@ -46,6 +46,8 @@ Breathe.add_commands(
         "go commander": Key("c-o"),
         "show find": build_context(Key("c-s"), Key("cs-f")),
         "find <text>": build_context(Key("c-s/25") + Text("%(text)s"), Key("cs-f/25") + Text("%(text)s")),
+
+        "code <text>": Text("code %(text)s"),
     },
 
     extras = [

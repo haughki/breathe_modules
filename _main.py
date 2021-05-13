@@ -9,6 +9,7 @@ modules = {
             "bash_common",
             "chrome",
             "intellij",
+            "powershell",
             "vscode",
             "wsl",
         ],
