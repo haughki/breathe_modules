@@ -39,6 +39,7 @@ Breathe.add_commands(
         "apt get update": T("apt-get update"),
         "apt get upgrade": T("apt-get upgrade"),
         "clear arg": Key("c-w"),
+        "arg swat [<n>]": Key("c-w:%(n)d"),
         "clear line": Key("c-a") + Key("c-k"),
         "break": K("c-c"),
         "cat": T("cat "),
@@ -81,7 +82,7 @@ Breathe.add_commands(
         "move <text>": T("mv %(text)s"),
         "move <text> to [<text2>]": T("mv %(text)s") + K("tab") + T(" %(text2)s") + K("tab"),
         "processes": T("ps aux\n"),
-        "process grep": T('ps aux | egrep "PID|"'),
+        "process grep": T('ps aux | egrep "PID|"') + K("left"),
         "push (directory | chai)": T("pushd .\n"),
         "push other (directory | chai)": T("pushd "),
         "pop (directory | chai)": T("popd\n"),
@@ -94,7 +95,6 @@ Breathe.add_commands(
         "run <text>": T("./%(text)s") + K("tab,enter"),
         "super do": T("sudo "),
         "switch user": T("su "),
-        "swat [<n>]": Key("c-w:%(n)d"),
         "time": T("time "),
         "trash": T("trash "),
         "who am I": T("whoami\n"),
@@ -131,6 +131,7 @@ Breathe.add_commands(
     ],
     defaults = {
         "t": 1,
+        "n": 1,
         "text": "",
         "text2": ""
     }

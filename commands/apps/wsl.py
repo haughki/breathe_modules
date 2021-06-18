@@ -1,8 +1,6 @@
 from commands.imports import *
 from supporting import utils
 
-windows_home = "/mnt/c/Users/parkeh1"
-
 def build_context(mc, terminal_default):
     return ContextAction(
         default=None, actions=
@@ -11,6 +9,8 @@ def build_context(mc, terminal_default):
             (AppContext(executable="WindowsTerminal"), terminal_default),
         ],
     )
+
+windows_home = "/mnt/c"
 
 Breathe.add_commands(
     context = AppContext(executable='ubuntu') | AppContext(executable='WindowsTerminal'),

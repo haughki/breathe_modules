@@ -261,7 +261,7 @@ Breathe.add_commands(
         "new (thing | file)": Key("c-n"),
         "file save": Key("c-s"),
         "file open": Key("c-o"),
-        "(lift | it'slock)": Key("capslock"),
+        "it'slock": Key("capslock"),
 
         ### custom vocabulary
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),

@@ -46,6 +46,7 @@ Breathe.add_commands(
         # "two close": Key("c-c, del, {, {, c, 2, colon, colon, c-v, backspace, }, }, space"),
 
         "Jean pass": Key("ca-j"),
+        "Jean pass other": Key("ca-k"),
         "just pass": Key("ca-o"),
         # "clean close [<n>]": Key("c-a, del, c-w/20:%(n)d"),stop
     }

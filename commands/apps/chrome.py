@@ -175,10 +175,10 @@ class GmailMappings(MappingRule):
         "[move] [to] waiting [for response]": Function(selectAndMove, dest="aa_todo/waiting for response"),
 
         # Genentech
-        "[peptide] registration": Function(selectAndMove, dest="peptide registration"),
-        "label [peptide] registration": Key("g,l/20") + Text("peptide registration") + Key("enter"),
-        "move to peptide": Function(selectAndMove, dest="PRS"),
-        "label peptide": Key("g,l/20") + Text("PRS") + Key("enter"),
+        "peptide registration": Function(selectAndMove, dest="peptide registration"),
+        "label peptide registration": Key("g,l/20") + Text("peptide registration") + Key("enter"),
+        "peptide request": Function(selectAndMove, dest="peptide request"),
+        "label peptide request": Key("g,l/20") + Text("peptide request") + Key("enter"),
         "data loader": Function(selectAndMove, dest="data loader"),
         "label data loader": Key("g,l/20") + Text("data loader") + Key("enter"),
         "temp": Function(selectAndMove, dest="temp"),
