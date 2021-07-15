@@ -33,6 +33,7 @@ Breathe.add_commands(
         "direct temp": T("cd ~/temp") + K("enter"),
         "direct projects": Text("cd ~/projects") + Key("enter"),
         "direct registration": T("cd ~/projects/cdd_peptide_reg") + K("enter"),
+        "direct front end": T("cd ~/projects/cdd_peptide_reg/cdd_peptide_reg_frontend") + K("enter"),
 
         "apt get clean": T("apt-get clean"),
         "apt get install": T("apt-get install "),

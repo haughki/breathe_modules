@@ -48,6 +48,7 @@ Breathe.add_commands(
         "find <text>": build_context(Key("c-s/25") + Text("%(text)s"), Key("cs-f/25") + Text("%(text)s")),
 
         "code <text>": Text("code %(text)s"),
+        "WSL view": Text("wslview "),
     },
 
     extras = [

@@ -49,9 +49,9 @@ Breathe.add_commands(
         "run test": Key("cs-f10"),
         "stop running": Key("c-f2"),
         "[toggle] (breakpoint | break)": Key("c-f8"),
-        "step [over]": Key("f8"),
+        "step [over]": Key("f10"),
         "step into": Key("f11"),
-        "step out": Key("s-f8"),
+        "step out": Key("s-f11"),
         "(keep running | resume)": Key("f9"),
 
         # Window handling

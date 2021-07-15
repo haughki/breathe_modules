@@ -27,6 +27,22 @@ Breathe.add_commands(
 
        #"[go to | show] project window": Key("a-1"),
 
+        # Code execution.
+        # "run app": Key("s-f10"),
+        # "stop app": Key("c-f2"),
+        "stop debugging": Key("s-f9"),
+        "debug app": Key("f9"),
+        "debug restart": Key("cs-f9"),
+        # "re-run app": Key("c-f5"),
+        # "run this [app]": Key("cs-f10"),
+        # "run test": Key("cs-f10"),
+        "[toggle] (breakpoint | break)": Key("f5"),
+        "stop running": Key("s-f5"),
+        "step [over]": Key("f10"),
+        "step into": Key("f11"),
+        "step out": Key("s-f11"),
+        "(keep running | resume)": Key("f9"),
+
         # Search.
         "replace": Key("c-r"),
         "replace (enter | all)": Key("ca-enter"),
@@ -57,12 +73,32 @@ Breathe.add_commands(
         "next tab [<t>]": Key("c-pagedown:%(t)d"),
         "preev tab [<t>]": Key("c-pageup:%(t)d"),
         "close tab": Key("c-w"),
+
         "(full-screen | full screen)": Key("cs-x"),
-        "(toggle | show) sidebar": Key("c-b"),
-        "go to sidebar": Key("c-0"),
+        "(hide | hi | show) sidebar": Key("c-b"),
+        "(hide | hi | show) bottom": Key("cs-j"),
         "go to editor": Key("csa-`"),
+        "go to sidebar": Key("c-0"),
+        "go to bottom": Key("c-`"),
+
+        # Code
+        "format file": Key("as-f"),
+
+        # Refactoring
+        # "(refactor|re-factor) (this|choose)": Key("cas-t"),
+        "[(refactor|re-factor)] rename": Key("f2"),
         "rename [current] file": Key("c-0") + Key("f2"),
-        "sidebar rename": Key("f2"),
+        # "[(refactor|re-factor)] change signature": Key("c-f6"),
+        # "(refactor|re-factor) move": Key("f6"),
+        # "(refactor|re-factor) copy": Key("f5"),
+        # "[(refactor|re-factor)] safe delete": Key("a-del"),
+        # "[(refactor|re-factor)] extract constant": Key("ca-c"),
+        # "[(refactor|re-factor)] extract field": Key("ca-f"),
+        # "[(refactor|re-factor)] extract parameter": Key("ca-p"),
+        # "[(refactor|re-factor)] extract variable": Key("ca-v"),
+        # "[(refactor|re-factor)] extract method": Key("ca-w"),
+        # "[(refactor|re-factor)] (in line|inline)": Key("ca-n"),
+
 
         # git
         "pull this": Key("c-t"),

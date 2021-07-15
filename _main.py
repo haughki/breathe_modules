@@ -26,6 +26,7 @@ modules = {
         "languages": [
             "java",
             "python",
+            "javascript",
         ],
     }
 }

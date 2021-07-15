@@ -202,6 +202,7 @@ Breathe.add_commands(
         "less equals": Key("space, langle, equal, space"),
         "plus assign": Key("space, plus, equal, space"),
         "minus assign": Key("space, dash, equal, space"),
+        "you tells": Text("utils"),
 
         ### Lines
         "end chuck": release + Key("s-end, del"), # del from cursor to line end
@@ -262,6 +263,7 @@ Breathe.add_commands(
         "file save": Key("c-s"),
         "file open": Key("c-o"),
         "it'slock": Key("capslock"),
+        "etsy": Text("etc"),
 
         ### custom vocabulary
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),
