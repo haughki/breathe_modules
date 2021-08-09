@@ -19,7 +19,7 @@ window_map = {
     # "note": {"exe_name": "natspeak", "title_hint": "voice working dragon"},
     "pad working": {"exe_name": "notepad", "title_hint": "pad working"},
     "daily tasks": {"exe_name": "wordpad", "title_hint": "daily tasks"},
-    "questions": {"exe_name": "wordpad", "title_hint": "running questions"},
+    "running questions": {"exe_name": "wordpad", "title_hint": "running questions"},
     "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
     # "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
     # "Python library": {"exe_name": "idea64", "title_hint": "python-code-library"},
@@ -60,7 +60,7 @@ config.lang.focus_title    = Item("focus title <text>",
                                   doc="Bring a window with a given title (or title fraction) to the foreground. 'focus chrome google maps'")
 config.lang.place_win      = Item("place <win_selector> (<position> [on <mon_selector>] | on <mon_selector>)",
                                   doc="Move a window to a monitor or to a location on a monitor. 'place chrome on 2' or 'place chrome top on 2'")
-config.lang.nudge_win      = Item("nudge <win_selector> <direction> [<nudge_multiplier>]",
+config.lang.nudge_win      = Item("grudge <win_selector> <direction> [<nudge_multiplier>]",
                                   doc="Nudge a window in a direction. 'nudge chrome right 6'")
 config.lang.resize_win     = Item("resize <win_selector> [from] <position> [to] <position> [on <mon_selector>]",
                                   doc="Move and resize a window. 'resize chrome top right on 2'")
@@ -408,7 +408,7 @@ direction_rule = Rule(
 )
 direction = RuleRef(direction_rule, name="direction")
 
-nudge_multiplier = IntegerRef("nudge_multiplier", 1, 20)
+nudge_multiplier = IntegerRef("nudge_multiplier", 1, 100)
 
 def calculateNewPosition(direction_and_value, multiplier):
     new_position = [0, 0]

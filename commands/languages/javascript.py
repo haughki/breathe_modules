@@ -4,7 +4,7 @@ from supporting import utils
 
 def define_function(text=None):
     if text:
-        text = utils.pascal(text)
+        text = utils.camel(text)
         (Text("function " + text + "() {") + Key("left:3")).execute()
     else:
         (Text("function () {") + Key("left:4")).execute()
@@ -67,13 +67,15 @@ Breathe.add_commands(
         "print out":                      Text("console.log()") + Key("left"),
         "this":                           Text("this"),
         "for loop":                                          Text("for (let i = 0; i < ; i++){") + Key("enter,up,end,left:7"),
-        "for each":                                          Text(".foreEach( =>)") + Key("left,enter,up,end,left:3"),
+        "for each":                                          Text(".forEach( =>)") + Key("left,enter,up,end,left:3"),
         "while loop":                                        Text("while ()")+Key("left"),
         "do loop":                                            Text("do {}") + Key("left, enter:2"),
         "try":                                                Text("try "),
         "catch":                                              Text("catch "),
         "finally":                                            Text("finally "),
         "throw":                                              Text("throw new "),
+        "let":                                              Text("let "),
+        "constant":                                              Text("const "),
 
         # "to string":                      Text("str()") + Key("left"),
         # "to integer":                     Text("int()") + Key("left"),
@@ -101,6 +103,7 @@ Breathe.add_commands(
 
         "ternary":                        Text("()?:") + Key("left:3"),
         "import":                         Text("import "),
+        "export":                         Text("export "),
         "return":                         Text("return "),
         "from":                           Text("from "),
         # "global":                         Text("global "),

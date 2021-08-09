@@ -47,9 +47,9 @@ Breathe.add_commands(
         "define initialize":                                  Text("def __init__(self):") + Key("left:2"),
         "private <text>":                                     Function(make_private),
         "if then [<casing>] [<text>]":                        Function(if_then),
-        "(shells | else) then":                               Text("else:") + Key("enter"),
-        "if (shells | else)":                                 Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
-        "(shells | else) if":                                 Key("e,l,i,f,space,colon,left"),
+        "else then":                               Text("else:") + Key("enter"),
+        "if else":                                 Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
+        "else if":                                 Key("e,l,i,f,space,colon,left"),
         "inline if":                                          Text(" if  else ") + Key("left:6"),
         "list comprehension":                                 Text("[x for x in if ]"),
 

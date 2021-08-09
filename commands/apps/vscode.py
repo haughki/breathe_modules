@@ -30,7 +30,8 @@ Breathe.add_commands(
         # Code execution.
         # "run app": Key("s-f10"),
         # "stop app": Key("c-f2"),
-        "stop debugging": Key("s-f9"),
+        "disconnect debugging": Key("s-f9"),
+        "stop debugging": Key("s-f5"),
         "debug app": Key("f9"),
         "debug restart": Key("cs-f9"),
         # "re-run app": Key("c-f5"),
@@ -80,6 +81,7 @@ Breathe.add_commands(
         "go to editor": Key("csa-`"),
         "go to sidebar": Key("c-0"),
         "go to bottom": Key("c-`"),
+        "sidebar file": Key("cs-\\"),
 
         # Code
         "format file": Key("as-f"),

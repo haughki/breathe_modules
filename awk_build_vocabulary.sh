@@ -1,5 +1,6 @@
 #!/usr/bin/awk -f
 # print all the commands from a mapping rule
+# usage:  ./awk_build_vocabulary.sh evernote.py
 
 BEGIN {
     in_mapping = 0
