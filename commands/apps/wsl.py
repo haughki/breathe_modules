@@ -19,8 +19,8 @@ Breathe.add_commands(
 
         "new tab": Key("cs-t"),
         "(duplicate | dupe) tab": Key("cs-d"),
-        "next tab [<t>]": Key("c-tab"),
-        "preev tab [<t>]": Key("cs-tab"),
+        "next tab [<t>]": Key("c-tab:%(t)d"),
+        "preev tab [<t>]": Key("cs-tab:%(t)d"),
         # "move tab right [<t>]": Key("cas-right/5:%(t)d"),
         # "move tab left [<t>]": Key("cas-left/5:%(t)d"),
         "close tab": Key("c-f4"),

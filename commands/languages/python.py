@@ -46,7 +46,7 @@ Breathe.add_commands(
         "define function [<text>]":                           Function(define_function),
         "define initialize":                                  Text("def __init__(self):") + Key("left:2"),
         "private <text>":                                     Function(make_private),
-        "if then [<casing>] [<text>]":                        Function(if_then),
+        "if then [<casing>] [s<text>]":                        Function(if_then),
         "else then":                               Text("else:") + Key("enter"),
         "if else":                                 Key("i,f,space,colon,enter,s-tab,e,l,s,e,colon,up,left"),
         "else if":                                 Key("e,l,i,f,space,colon,left"),

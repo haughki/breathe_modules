@@ -42,7 +42,7 @@ Breathe.add_commands(
         "clear arg": Key("c-w"),
         "arg swat [<n>]": Key("c-w:%(n)d"),
         "clear line": Key("c-a") + Key("c-k"),
-        "break": K("c-c"),
+        "control break": K("c-c"),
         "cat": T("cat "),
         # "Clyde copy": T("cp "),
         "do copy": T("cp "),

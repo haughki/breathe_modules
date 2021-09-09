@@ -66,8 +66,8 @@ Breathe.add_commands(
         # Code navigation.
         "get file [<text>]": Function(getFile),  # "Navigate > File..."
         "toggle (book | bookmark)": Key("f7"),
-        "next (book | bookmark)": Key("cs-n"),
-        "(prev | previous) book": Key("cs-p"),
+        "next (book | bookmark)": Key("ca-0"),
+        "(prev | previous) book": Key("ca-8"),
 
         # Window handling.
         "new tab": Key("c-n"),

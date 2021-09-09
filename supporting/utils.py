@@ -115,6 +115,7 @@ def text_to_case(make_me, format_me):
 
 def snake(text):
     # Format: some_words
+    text = text.replace("-", "")
     words = [word.lower() for word in text.split(" ")]
     return "_".join(words)
 
