@@ -26,20 +26,17 @@ def printUpDir(w=1):
 
 Breathe.add_commands(
     # mintty is git bash, git for Windows
-    context=AppContext(executable='ubuntu') | AppContext(executable='mobaxterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
+    context=AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
         # directories
         "direct home": Text("cd ~") + Key("enter"),
         "direct temp": T("cd ~/temp") + K("enter"),
-        "direct projects": Text("cd ~/projects") + Key("enter"),
-        "direct registration": T("cd ~/projects/cdd_peptide_reg") + K("enter"),
-        "direct front end": T("cd ~/projects/cdd_peptide_reg/cdd_peptide_reg_frontend") + K("enter"),
 
         "apt get clean": T("apt-get clean"),
         "apt get install": T("apt-get install "),
         "apt get update": T("apt-get update"),
         "apt get upgrade": T("apt-get upgrade"),
-        "clear arg": Key("c-w"),
+        "clear arg [<n>]": Key("c-w:%(n)d"),
         "arg swat [<n>]": Key("c-w:%(n)d"),
         "clear line": Key("c-a") + Key("c-k"),
         "control break": K("c-c"),
@@ -66,7 +63,7 @@ Breathe.add_commands(
         "jobs running": T("jobs -lr\n"),
         "jobs stopped": T("jobs -ls\n"),
         "less": T("less "),
-        "list": T("ls -al\n"),
+        "list": T("LC_COLLATE=C ls -AlF\n"),
         "list short": Text("ls") + Key("enter"),
         "list filter": T("ls -al | grep "),
         "list <text>": T("ls -al %(text)s") + K("tab,enter"),

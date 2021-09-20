@@ -12,6 +12,7 @@ modules = {
             "powershell",
             "vscode",
             "wsl",
+            "moba_x_term",
         ],
         "core": [
             "aliases",

@@ -38,6 +38,10 @@ Breathe.add_commands(
         "put win projects": Text(windows_home + "/projects"),
         "win temp": Text("wintmp") + Key("enter"),
         "put win temp": Text(windows_home + "/temp"),
+        "direct projects": Text("cd ~/projects") + Key("enter"),
+        "direct registration": Text("cd ~/projects/cdd_peptide_reg") + Key("enter"),
+        "direct front end": Text("cd ~/projects/cdd_peptide_reg/cdd_peptide_reg_frontend") + Key("enter"),
+
         # "win root chow": Text("/mnt/c/"),
         # "win root drum": Text("/mnt/d/"),
 
