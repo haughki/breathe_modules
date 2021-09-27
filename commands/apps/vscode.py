@@ -73,7 +73,7 @@ Breathe.add_commands(
         "new tab": Key("c-n"),
         "next tab [<t>]": Key("c-pagedown:%(t)d"),
         "preev tab [<t>]": Key("c-pageup:%(t)d"),
-        "close tab": Key("c-w"),
+        "close tab": Key("c-w:%(n)d"),
 
         "(full-screen | full screen)": Key("cs-x"),
         "(hide | hi | show) sidebar": Key("c-b"),

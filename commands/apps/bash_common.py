@@ -28,6 +28,9 @@ Breathe.add_commands(
     # mintty is git bash, git for Windows
     context=AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
+        # project variables
+        "CDD registration": Text("cdd_peptide_reg"),
+        
         # directories
         "direct home": Text("cd ~") + Key("enter"),
         "direct temp": T("cd ~/temp") + K("enter"),
@@ -49,6 +52,8 @@ Breathe.add_commands(
         "chai chain <text>": T("cd %(text)s") + K("tab:3"),
         "chain <text>": T("%(text)s") + K("tab:3"),
         "chai up [<w>]": Function(printUpDir),  # + Key("enter")
+        "change owner": T("chown "),
+        "change modifiers": T("chmod "),
         # "chaif <common_folder>": T("cd %(common_folder)s\n"),
         "echo": T("echo "),
         # "echo path": T("echo $PATH\n"),
@@ -86,6 +91,7 @@ Breathe.add_commands(
         "pop (directory | chai)": T("popd\n"),
         "(directory | chai) stack": T("dirs\n"),
         "print (working directory | chai)": T("pwd\n"),
+        "read link": T("readlink -f "),
         "remove": T("rm "),
         "remove directory": T("rmdir "),
         "remove directory recursively": T("rmdir -r"),
@@ -109,10 +115,10 @@ Breathe.add_commands(
         "pip three install": T("pip3 install "),
         "pip three uninstall": T("pip3 uninstall "),
         "to Jason": Text(" | python -m json.tool") + Key("enter"),
-        "vim": T("vim "),
-        "vim <text>": T("vim %(text)s") + K("tab,enter"),
-        "suvim": T("sudo vim "),
-        "suvim <text>": T("sudo vim %(text)s") + K("tab,enter"),
+        "do vim": T("vim "),
+        "do vim <text>": T("vim %(text)s") + K("tab,enter"),
+        "Sue vim": T("sudo vim "),
+        "Sue vim <text>": T("sudo vim %(text)s") + K("tab,enter"),
         "web get": T("wget "),
 
     },
