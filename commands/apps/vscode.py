@@ -48,10 +48,10 @@ Breathe.add_commands(
         "replace": Key("c-r"),
         "replace (enter | all)": Key("ca-enter"),
         "show find": Key("c-f"),
-        "find <text>": Key("c-f/25") + Text("%(text)s"),
-        # "find next": Key("f3"),
-        # "find (prev | previous)": Key("s-f3"),
-        # "find in files": Key("cs-f"),
+        # "find <text>": Key("c-f/25") + Text("%(text)s"),
+        "find next": Key("f3"),
+        "find (prev | previous)": Key("s-f3"),
+        "find in files": Key("cs-f"),
 
         # Edit.
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/25") + Function(utils.printNumber) + Key("enter"),

@@ -49,5 +49,7 @@ Breathe.add_commands(
         "Jean pass other": Key("ca-k"),
         "just pass": Key("ca-o"),
         # "clean close [<n>]": Key("c-a, del, c-w/20:%(n)d"),stop
+
+        "GitLab checkbox": Text("- [ ] "),
     }
 )
