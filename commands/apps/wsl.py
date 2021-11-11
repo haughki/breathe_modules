@@ -53,6 +53,7 @@ Breathe.add_commands(
 
         "code <text>": Text("code %(text)s"),
         "WSL view": Text("wslview "),
+        "WSL path": Text("wslpath "),
     },
 
     extras = [

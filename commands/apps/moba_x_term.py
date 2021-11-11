@@ -6,7 +6,7 @@ Breathe.add_commands(
     mapping = {
         "Smitty super do": Text("sudo -u smdi -s") + Key("enter"),
         "direct dev": Text("cd /apps/user/cdd/dev") + Key("enter"),
-        "direct registration dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev/lib/python3.8/site-packages/cdd_peptide_reg") + Key("enter"),
+        "direct registration dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
         "direct conda dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev") + Key("enter"),
         "direct config dev": Text("cd /apps/user/cdd/dev/conf/server/cddweb-dev") + Key("enter"),
         "direct logs dev": Text("cd /apps/user/cdd/dev/log/cdd_peptide_reg") + Key("enter"),
@@ -14,7 +14,7 @@ Breathe.add_commands(
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
 
         "direct prod": Text("cd /apps/user/cdd/prd") + Key("enter"),
-        "direct registration prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd/lib/python3.8/site-packages/cdd_peptide_reg") + Key("enter"),
+        "direct registration prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
         "direct conda prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd") + Key("enter"),
         "direct config prod": Text("cd /apps/user/cdd/prd/conf/server/cddweb-prd") + Key("enter"),
         "direct logs prod": Text("cd /apps/user/cdd/prd/log/cdd_peptide_reg") + Key("enter"),

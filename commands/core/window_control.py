@@ -13,8 +13,9 @@ To see data about the current available windows (including the actual names to u
 """
 window_map = {
     "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
-    "code working": {"exe_name": "code", "title_hint": "working"},
-    "code registration": {"exe_name": "code", "title_hint": "registration"},
+    "working": {"exe_name": "code", "title_hint": "working (Workspace)"},
+    "registration": {"exe_name": "code", "title_hint": "registration (Workspace)"},
+    "register": {"exe_name": "code", "title_hint": "registration (Workspace)"},
     "note": {"exe_name": "notepad", "title_hint": "voice working"},
     # "note": {"exe_name": "natspeak", "title_hint": "voice working dragon"},
     "pad working": {"exe_name": "notepad", "title_hint": "pad working"},
@@ -551,8 +552,8 @@ Breathe.add_commands(
         # "focus" shortcuts for certain high usage applications
         Alternative((
             Literal("breathe"),
-            Literal("code working"),
-            Literal("code register"),
+            Literal("working"),
+            Literal("register"),
             Literal("note"),
             Literal("chrome")), "app_name"),
         win_selector,

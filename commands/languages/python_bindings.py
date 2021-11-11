@@ -109,15 +109,15 @@ methods = {
 }
 
 types = {
-    "Boolean": "bool",
-    "bites": "bytes",
-    "character": "chr",
-    "dictionary": "dict",
-    "float": "float",
-    "integer": "int",
-    "list": "list",
-    "object": "object",
-    "set": "set",
-    "string": "str",
-    "(topple | tuple)": "tuple",
+    "Boolean": ": bool",
+    "bites": ": bytes",
+    "character": ": chr",
+    "dictionary": ": dict",
+    "float": ": float",
+    "integer": ": int",
+    "list": ": list",
+    "object": ": object",
+    "set": ": set",
+    "string": ": str",
+    "(topple | tuple)": ": tuple",
 }

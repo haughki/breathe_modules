@@ -22,9 +22,9 @@ def define_private_method(text=None):
 def define_class(text=None):
     if text:
         text = utils.pascal(text)
-        (Text("class " + text + "():") + Key("left:2")).execute()
+        (Text("class " + text + ":") + Key("left")).execute()
     else:
-        (Text("class ():") + Key("left:3")).execute()
+        (Text("class :") + Key("left")).execute()
 
 def make_private(text):
     text = "_" + utils.snake(text)
