@@ -13,15 +13,15 @@ To see data about the current available windows (including the actual names to u
 """
 window_map = {
     "breathe": {"exe_name": "idea64", "title_hint": "breathe_modules"},
+    "dev tools": {"exe_name": "chrome", "title_hint": "DevTools"},
     "working": {"exe_name": "code", "title_hint": "working (Workspace)"},
     "registration": {"exe_name": "code", "title_hint": "registration (Workspace)"},
     "register": {"exe_name": "code", "title_hint": "registration (Workspace)"},
     "note": {"exe_name": "notepad", "title_hint": "voice working"},
-    # "note": {"exe_name": "natspeak", "title_hint": "voice working dragon"},
-    "pad working": {"exe_name": "notepad", "title_hint": "pad working"},
+    # "pad working": {"exe_name": "notepad", "title_hint": "pad working"},
     "daily tasks": {"exe_name": "wordpad", "title_hint": "daily tasks"},
     "running questions": {"exe_name": "wordpad", "title_hint": "running questions"},
-    "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
+    # "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
     # "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
     # "Python library": {"exe_name": "idea64", "title_hint": "python-code-library"},
     # "Java library": {"exe_name": "idea64", "title_hint": "java-code-library"},
@@ -35,7 +35,6 @@ window_map = {
     "evernote": {"exe_name": "evernote", "title_hint": "evernote"},
     "explore": {"exe_name": "explorer", "title_hint": ""},
     "idea": {"exe_name": "", "title_hint": ""},
-    "Indeni": {"exe_name": "virtualbox", "title_hint": "indeni server"},
     "mobile": {"exe_name": "mobaxterm", "title_hint": ""},
     "NatLink": {"exe_name": "natspeak", "title_hint": "messages from Natlink"},
     "Notepad": {"exe_name": "notepad", "title_hint": "Notepad"},
@@ -552,6 +551,7 @@ Breathe.add_commands(
         # "focus" shortcuts for certain high usage applications
         Alternative((
             Literal("breathe"),
+            Literal("dev tools"),
             Literal("working"),
             Literal("register"),
             Literal("note"),

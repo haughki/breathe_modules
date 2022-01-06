@@ -23,7 +23,7 @@ Breathe.add_commands(
         "preev tab [<t>]": Key("cs-tab:%(t)d"),
         # "move tab right [<t>]": Key("cas-right/5:%(t)d"),
         # "move tab left [<t>]": Key("cas-left/5:%(t)d"),
-        "close tab": Key("c-f4"),
+        "close tab [<t>]": Key("c-f4:%(t)d"),
         "new pane": Key("as-d"),
         "close pane": Key("cs-w"),
 
@@ -51,6 +51,8 @@ Breathe.add_commands(
         "show find": build_context(Key("c-s"), Key("cs-f")),
         "find <text>": build_context(Key("c-s/25") + Text("%(text)s"), Key("cs-f/25") + Text("%(text)s")),
 
+        # misc
+        "start peptide registration": Text("pep_reg_start") + Key("enter"),
         "code <text>": Text("code %(text)s"),
         "WSL view": Text("wslview "),
         "WSL path": Text("wslpath "),
