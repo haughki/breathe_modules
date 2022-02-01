@@ -50,7 +50,7 @@ def select(n=None):
         Key("x").execute()
 
 def selectAndMove(dest):
-    Key("x/30,v/30").execute()
+    Key("x/50,v/50").execute()
     Text(dest).execute()
     Pause("50").execute()
     Key("enter").execute()
