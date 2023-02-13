@@ -58,6 +58,7 @@ Breathe.add_commands(
         "find in files": Key("cs-f"),
 
         # Edit.
+        "redo": Key("c-y"),
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("c-g/25") + Function(utils.printNumber) + Key("enter"),
         "[show] white space": Key("cs-w"),
         "word wrap": Key("cs-d"),

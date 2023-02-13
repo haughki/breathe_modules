@@ -13,6 +13,7 @@ Breathe.add_commands(
         "direct data loader files dev": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/dev/data_loader_files") + Key("enter"),
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
         "restart registration dev": Text("sudo supervisorctl restart cdd_peptide_reg:"),
+        "deploy registration dev": Text("bash -i ./server_deploy.sh dev "),
 
         "direct prod": Text("cd /apps/user/cdd/prd") + Key("enter"),
         "direct registration prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
