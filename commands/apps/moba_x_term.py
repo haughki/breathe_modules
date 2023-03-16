@@ -11,6 +11,7 @@ Breathe.add_commands(
         "direct config dev": Text("cd /apps/user/cdd/dev/conf/server/cddweb-dev") + Key("enter"),
         "direct logs dev": Text("cd /apps/user/cdd/dev/log/cdd_peptide_reg") + Key("enter"),
         "direct data loader files dev": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/dev/data_loader_files") + Key("enter"),
+        "direct extra dev": Text("cd /apps/user/cdd/dev/") + Key("enter"),
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
         "restart registration dev": Text("sudo supervisorctl restart cdd_peptide_reg:"),
         "deploy registration dev": Text("bash -i ./server_deploy.sh dev "),

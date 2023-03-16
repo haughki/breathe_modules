@@ -20,7 +20,7 @@ window_map = {
     "note": {"exe_name": "notepad", "title_hint": "voice working"},
     # "pad working": {"exe_name": "notepad", "title_hint": "pad working"},
     "daily tasks": {"exe_name": "wordpad", "title_hint": "daily tasks"},
-    "running questions": {"exe_name": "wordpad", "title_hint": "running questions"},
+    "running notes": {"exe_name": "wordpad", "title_hint": "running notes"},
     # "peptide": {"exe_name": "idea64", "title_hint": "peptide-webapp"},
     # "Dragon": {"exe_name": "idea64", "title_hint": "dragonfly-project"},
     # "Python library": {"exe_name": "idea64", "title_hint": "python-code-library"},

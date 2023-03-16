@@ -16,7 +16,7 @@ class OpenFilesRule(MappingRule):
         #"file pad working": Function(openFile, command=r'C:\Program Files\Windows NT\Accessories\wordpad.exe "G:\My Drive\voice working.rtf"'),
         "file random strings": Function(openFile, command=r'notepad "D:\temp\random_string.txt'),
         "file daily tasks": Function(openFile, command=r'"C:\Program Files\Windows NT\Accessories\wordpad.exe" "G:\My Drive\daily tasks.rtf"'),
-        "file [running] questions": Function(openFile, command=r'"C:\Program Files\Windows NT\Accessories\wordpad.exe" "G:\My Drive\running questions.rtf"'),
+        "file running notes": Function(openFile, command=r'"C:\Program Files\Windows NT\Accessories\wordpad.exe" "G:\My Drive\running notes.rtf"'),
 
         "Evernote Linux": Function(runCommand, command=[r"C:\Users\parkeh1\Documents\evernote_links\note_linux.url"]),
         "Evernote JavaScript": Function(runCommand, command=[r"C:\Users\parkeh1\Documents\evernote_links\note_javascript.url"]),
