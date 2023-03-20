@@ -1,5 +1,12 @@
 from commands.imports import *
 
+def tail_app_log(n=None):
+    if n > 1:
+        Text("tail -" + str(n) + " ./cdd_peptide_reg_app.log").execute()
+        Key("enter").execute()
+    else:
+        Text("tail -f ./cdd_peptide_reg_app.log").execute()
+        Key("enter").execute()
 
 Breathe.add_commands(
     context = AppContext(executable='MobaXterm'),
@@ -11,7 +18,7 @@ Breathe.add_commands(
         "direct config dev": Text("cd /apps/user/cdd/dev/conf/server/cddweb-dev") + Key("enter"),
         "direct logs dev": Text("cd /apps/user/cdd/dev/log/cdd_peptide_reg") + Key("enter"),
         "direct data loader files dev": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/dev/data_loader_files") + Key("enter"),
-        "direct extra dev": Text("cd /apps/user/cdd/dev/") + Key("enter"),
+        "direct extra dev": Text("cd /gstore/data/smdd/cdd/dev/cdd_peptide_reg") + Key("enter"),
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
         "restart registration dev": Text("sudo supervisorctl restart cdd_peptide_reg:"),
         "deploy registration dev": Text("bash -i ./server_deploy.sh dev "),
@@ -22,7 +29,10 @@ Breathe.add_commands(
         "direct config prod": Text("cd /apps/user/cdd/prd/conf/server/cddweb-prd") + Key("enter"),
         "direct logs prod": Text("cd /apps/user/cdd/prd/log/cdd_peptide_reg") + Key("enter"),
         "direct data loader files prod": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/prd/data_loader_files") + Key("enter"),
+        "direct extra prod": Text("cd /gstore/data/smdd/cdd/prd/cdd_peptide_reg") + Key("enter"),
         "activate conda prod": Text("conda activate app_cdd_peptide_reg_prd") + Key("enter"),
+
+        "tail app log [<n>]": Function(tail_app_log),
     },
 
     extras = [
