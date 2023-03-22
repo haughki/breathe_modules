@@ -21,6 +21,7 @@ Breathe.add_commands(
         "direct extra dev": Text("cd /gstore/data/smdd/cdd/dev/cdd_peptide_reg") + Key("enter"),
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
         "restart registration dev": Text("sudo supervisorctl restart cdd_peptide_reg:"),
+        "stop registration dev": Text("sudo supervisorctl stop cdd_peptide_reg:"),
         "deploy registration dev": Text("bash -i ./server_deploy.sh dev "),
 
         "direct prod": Text("cd /apps/user/cdd/prd") + Key("enter"),
