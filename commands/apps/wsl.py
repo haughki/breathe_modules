@@ -56,6 +56,12 @@ Breathe.add_commands(
         "code <text>": Text("code %(text)s"),
         "WSL view": Text("wslview "),
         "WSL path": Text("wslpath "),
+
+        "invoke flake eight": Text("invoke lint.flake8") + Key("enter"),
+        "invoke pie lint": Text("invoke lint.pylint") + Key("enter"),
+        "invoke my pie": Text("invoke lint.mypy") + Key("enter"),
+        "invoke lint total": Text("invoke lint.total") + Key("enter"),
+        "invoke pie test": Text("invoke test.pytest") + Key("enter"),
     },
 
     extras = [
