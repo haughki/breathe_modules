@@ -58,10 +58,13 @@ Breathe.add_commands(
         "WSL path": Text("wslpath "),
 
         "invoke flake eight": Text("invoke lint.flake8") + Key("enter"),
-        "invoke pie lint": Text("invoke lint.pylint") + Key("enter"),
+        "invoke pie linter": Text("invoke lint.pylint") + Key("enter"),
         "invoke my pie": Text("invoke lint.mypy") + Key("enter"),
         "invoke lint total": Text("invoke lint.total") + Key("enter"),
         "invoke pie test": Text("invoke test.pytest") + Key("enter"),
+        "NPM start": Text("npm start") + Key("enter"),
+        "NPM test": Text("npm test") + Key("enter"),
+        "NPM run Lent": Text("npm run lint") + Key("enter"),
     },
 
     extras = [
