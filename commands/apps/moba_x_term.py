@@ -11,6 +11,7 @@ def tail_app_log(n=None):
 Breathe.add_commands(
     context = AppContext(executable='MobaXterm'),
     mapping = {
+        "Smitty super dog": Text("sudo -u smdi -s") + Key("enter"),
         "Smitty super do": Text("sudo -u smdi -s") + Key("enter"),
         "direct dev": Text("cd /apps/user/cdd/dev") + Key("enter"),
         "direct registration dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
