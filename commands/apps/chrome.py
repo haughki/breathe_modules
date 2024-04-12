@@ -192,6 +192,7 @@ class GmailMappings(MappingRule):
         "[move] [to] check me out": Function(selectAndMove, dest="check me out"),
         "[move] [to] friends": Function(selectAndMove, dest="friends"),
         "[move] [to] (health | health medical)": Function(selectAndMove, dest="health medical"),
+        "[move] [to] wellness coach": Function(selectAndMove, dest="important_/health medical/wellness coach"),
         "[move] [to] job search": Function(selectAndMove, dest="aa_job search"),
         "[move] [to] job alerts": Function(selectAndMove, dest="aa_job search/alerts"),
         "[move] [to] applied for": Function(selectAndMove, dest="aa_job search/applied for"),

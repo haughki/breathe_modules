@@ -13,7 +13,7 @@ Breathe.add_commands(
     mapping = {
         "Smitty super do": Text("sudo -u smdi -s") + Key("enter"),
         "direct dev": Text("cd /apps/user/cdd/dev") + Key("enter"),
-        "direct registration dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
+        "direct registration dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev/lib/python3.11/site-packages/cdd_peptide_reg") + Key("enter"),
         "direct conda dev": Text("cd /apps/user/cdd/dev/conda_envs/app_cdd_peptide_reg_dev") + Key("enter"),
         "direct config dev": Text("cd /apps/user/cdd/dev/conf/server/cddweb-dev") + Key("enter"),
         "direct logs dev": Text("cd /apps/user/cdd/dev/log/cdd_peptide_reg") + Key("enter"),
