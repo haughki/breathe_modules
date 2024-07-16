@@ -97,7 +97,7 @@ config.load()
 # Build the list of common window names
 win_names     = DictList("win_names")
 win_names_ref = DictListRef("win_names", win_names)
-for key in window_map.keys():
+for key in list(window_map.keys()):
     win_names[key] = key
 
 # Helper function to search for a default-name window.
@@ -148,7 +148,7 @@ def find_window(app_name, title_fragment, exe_name, title_hint):
                 got_title_hint_match = True
 
     if not best_match:
-        raise StandardError(
+        raise Exception(
             "Found no match for app_name: " + str(app_name) + " with title_fragment: " + str(title_fragment))
 
     # best_match.name = app_name
@@ -200,7 +200,7 @@ def focus_win(win_selector=None, app_name=None):
     for attempt in range(4):
         try:
             window.set_foreground()
-        except Exception, e:
+        except Exception as e:
             rule_log.warning("set_foreground() failed: %s." % e, exc_info=True)
             time.sleep(0.2)
         else:

@@ -19,8 +19,8 @@ class CommandRule(MappingRule):
 
         "find (prev | previous)": Key("cs-g"),
         "note find": Key("c-q"),
-        "note find <text>": Key("c-q/25") + Text("%(text)s"), 
-        
+        "note find <text>": Key("c-q/25") + Text("%(text)s"),
+
         # Window handling.
         # "new tab": Key("c-n"),
         # "next tab [<t>]": Key("c-tab:%(t)d"),

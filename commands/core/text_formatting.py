@@ -18,7 +18,7 @@ namespace = config.load()
 # Retrieve text-formatting functions from this module's config file. Each of these functions must have a name that starts with "format_".
 format_functions = {}
 if namespace:
-    for name, function in namespace.items():
+    for name, function in list(namespace.items()):
         if name.startswith("format_") and callable(function):
             spoken_form = function.__doc__.strip()
 

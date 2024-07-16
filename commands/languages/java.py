@@ -1,5 +1,5 @@
 from commands.imports import *
-import specs
+from . import specs
 from supporting import utils
 
 

@@ -38,7 +38,7 @@ def build_code_with_arguments(current_method_name, argument_specification, objec
     if argument_specification.defaults:
         defaults = argument_specification.defaults
         arguments_which_have_defaults = arguments[-len(defaults):]
-        arguments_with_defaults = zip(arguments_which_have_defaults, defaults)
+        arguments_with_defaults = list(zip(arguments_which_have_defaults, defaults))
         if len(arguments) >= len(arguments_with_defaults):
             arguments = arguments[:-len(defaults)]  # we have some defaults, so remove those from the list of arguments -- need to deal with those separately
 

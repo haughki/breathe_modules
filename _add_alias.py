@@ -6,7 +6,7 @@ def addAlias(dictation=None):
     alias_name = str(dictation) if dictation else alias_value
 
     if not alias_value or alias_value == "":
-        raise StandardError("No value for \"alias_value\".  Select some text to alias.")
+        raise Exception("No value for \"alias_value\".  Select some text to alias.")
     file_path = utils.NATLINK_USER_DIRECTORY + "\\commands\\core\\aliases.py"
     lines = []
     with open(file_path, 'r') as aliases:

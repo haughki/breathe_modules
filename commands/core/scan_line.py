@@ -19,22 +19,22 @@ def lineSearch(dictation_to_find, replace_with_me, _node):
         second_to_last_arg = commands[-2]
         last_arg = commands[-1]
         if second_to_last_arg == "replace" or last_arg == "replace":
-            print "Replacing..."
+            print("Replacing...")
             replacing = True
             replace_with_me = str(replace_with_me)
 
     to_find = str(dictation_to_find)
     if to_find == "":
-        print "No dictation, searching for character..."
+        print("No dictation, searching for character...")
         character_to_find = _node.words()[-1]
         to_find = character.CHARACTER_MAP[character_to_find]
 
     to_find = to_find.lower()
     searching_message = "Searching for " + ordinal_arg + ": "  if ordinal_arg else "Searching for: "
-    print searching_message + to_find
+    print(searching_message + to_find)
     Key("end,s-home/10").execute()  # select the line
     line = utils.getSelectedText().lower()  # copied to the clipboard, then get from the clipboard
-    print "Searching in line: " + line
+    print("Searching in line: " + line)
     line_index = -1
     if ordinal_arg:
         line_index = utils.find_nth(line, to_find, ordinal_map[ordinal_arg])
@@ -55,8 +55,8 @@ def lineSearch(dictation_to_find, replace_with_me, _node):
                 Text(replace_with_me).execute()
     else:
         Key("escape").execute()
-        print "unable to find: " + to_find
-        print "line: " + line
+        print("unable to find: " + to_find)
+        print("line: " + line)
 
 
 ordinal_map = {"second":2, "third":3, "fourth":4, "fifth":5, "sixth":6}

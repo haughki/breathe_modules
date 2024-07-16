@@ -104,7 +104,7 @@ class ConfigManagerGrammar(Grammar):
             config_time = os.path.getmtime(c.config_path)
             module_time = os.path.getmtime(c.module_path)
             if config_time >= module_time:
-                print "reloading config",c.name
+                print("reloading config",c.name)
                 os.utime(c.module_path, None)
 
         # Refresh the mapping of config names -> config files.
@@ -120,11 +120,11 @@ class ListConfigsRule(CompoundRule):
     spec = config.lang.list_configs
 
     def _process_recognition(self, node, extras):
-        print "Active configuration files:"
-        configs = config_map.keys()
+        print("Active configuration files:")
+        configs = list(config_map.keys())
         configs.sort()
         for config in configs:
-            print "  - %s" % config
+            print("  - %s" % config)
 
 config_manager_grammar.add_rule(ListConfigsRule())
 

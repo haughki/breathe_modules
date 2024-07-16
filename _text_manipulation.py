@@ -72,7 +72,7 @@ text_manipulation_grammar.add_rule(LowerRule())
 def copy_modify_paste(modifying_function):
     selected_text = utils.getSelectedText()
     if not selected_text:
-        print "No selected text?"
+        print("No selected text?")
         return
     modified_text = modifying_function(str(selected_text))
     # tried to use the original clipboard here, but couldn't get it to "clear" -- some apps would

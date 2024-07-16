@@ -8,7 +8,7 @@ class CommandRule(MappingRule):
         "next tab [<t>]": Key("c-tab/40:%(t)d"),
         "preev tab [<t>]": Key("cs-tab/40:%(t)d"),
         "close tab": Key("c-w"),
-        
+
         # Edit
         "[shoreline | show] line <w> [<x>] [<y>] [<z>]": Key("f5/30, s-tab, up:2, down:2, tab") + Function(utils.printNumber) + Key("enter, escape"),
         "(shoreline | show | toggle) line numbers": Key("cas-l"),

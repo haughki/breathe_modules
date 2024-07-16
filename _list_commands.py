@@ -23,10 +23,10 @@ def _print_rule_details(msg, grammar, rule):
             pass
     elif isinstance(rule, CompoundRule):
         if current_grammar != grammar:
-            print grammar
+            print(grammar)
             current_grammar = grammar
 
-        print "\t" + str(rule.spec)
+        print("\t" + str(rule.spec))
     else:
         pass
         # if msg:

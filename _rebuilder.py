@@ -19,7 +19,7 @@ def rebuild_all():
     Key("npadd/10,npadd").execute() # toggle microphone to rebuild non-breathe modules.
 
 def extras_rebuilder():
-    print "Rebuilding extras..."
+    print("Rebuilding extras...")
     for rebuild_me in rebuild_these:
         print(rebuild_me)
         reimport(rebuild_me)

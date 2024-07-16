@@ -1,5 +1,5 @@
 from commands.imports import *
-import specs, python_bindings
+from . import specs, python_bindings
 from supporting import utils
 
 def define_function(text=None):
