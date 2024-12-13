@@ -1,6 +1,7 @@
+import importlib
+
 from dragonfly import *
 from breathe import *
-from reimport import reimport
 
 from supporting import utils, character
 from commands.languages import specs, python_bindings
@@ -22,7 +23,7 @@ def extras_rebuilder():
     print("Rebuilding extras...")
     for rebuild_me in rebuild_these:
         print(rebuild_me)
-        reimport(rebuild_me)
+        importlib.reload(rebuild_me)
     utils.toggleMicrophone()
 
 # def specsRebuilder():

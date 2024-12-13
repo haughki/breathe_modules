@@ -30,7 +30,7 @@ Breathe.add_commands(
     mapping = {
         # project variables
         "CDD registration": Text("cdd_peptide_reg"),
-        
+
         # directories
         "direct home": Text("cd ~") + Key("enter"),
         "direct temp": T("cd ~/temp") + K("enter"),
@@ -42,6 +42,7 @@ Breathe.add_commands(
         "clear arg [<n>]": Key("c-w:%(n)d"),
         "arg swat [<n>]": Key("c-w:%(n)d"),
         "clear line": Key("c-a") + Key("c-k"),
+        "clear screen": Text("clear") + Key("enter"),
         "control break": K("c-c"),
         "cat": T("cat "),
         # "Clyde copy": T("cp "),

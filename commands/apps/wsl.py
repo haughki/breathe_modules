@@ -67,6 +67,9 @@ Breathe.add_commands(
         "NPM start": Text("npm start") + Key("enter"),
         "NPM test": Text("npm test") + Key("enter"),
         "NPM run Lent": Text("npm run lint") + Key("enter"),
+        "yarn start": Text("yarn start") + Key("enter"),
+        "yarn test": Text("yarn test") + Key("enter"),
+        "yarn run Lent": Text("yarn run lint") + Key("enter"),
         "fast API start": Text("./fastapistart.sh") + Key("enter"),
     },
 

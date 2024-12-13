@@ -73,6 +73,8 @@ Breathe.add_commands(
         "toggle (book | bookmark)": Key("f7"),
         "next (book | bookmark)": Key("ca-0"),
         "(prev | previous) book": Key("ca-8"),
+        "go [to] definition": Key("f12"),
+
 
         # Window handling.
         "new tab": Key("c-n"),
