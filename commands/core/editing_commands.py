@@ -251,6 +251,7 @@ Breathe.add_commands(
 
         ### other
         "control slap": Key("c-enter"),
+        "shift slap": Key("s-enter"),
         "(bolder|boulder) [that]": Key("c-b"),
         "italics [that]": Key("c-i"),
         "undo [<n>]": Key("c-z:%(n)d"),

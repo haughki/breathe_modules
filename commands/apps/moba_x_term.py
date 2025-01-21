@@ -25,7 +25,7 @@ Breathe.add_commands(
         "deploy registration dev": Text("bash -i ./server_deploy.sh dev "),
 
         "direct prod": Text("cd /apps/user/cdd/prd") + Key("enter"),
-        "direct registration prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd/lib/python3.9/site-packages/cdd_peptide_reg") + Key("enter"),
+        "direct registration prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd/lib/python3.11/site-packages/cdd_peptide_reg") + Key("enter"),
         "direct conda prod": Text("cd /apps/user/cdd/prd/conda_envs/app_cdd_peptide_reg_prd") + Key("enter"),
         "direct config prod": Text("cd /apps/user/cdd/prd/conf/server/cddweb-prd") + Key("enter"),
         "direct logs prod": Text("cd /apps/user/cdd/prd/log/cdd_peptide_reg") + Key("enter"),

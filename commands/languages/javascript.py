@@ -49,7 +49,7 @@ def else_if(casing=utils.camel, text=None):
 
 
 Breathe.add_commands(
-    context = AppContext(title=".js") | CommandContext("javascript"),
+    context = AppContext(title=[".js", ".jsx", ".ts", ".tsx"]) | CommandContext("javascript"),
     mapping = {
         "define class [camel | snake] [<text>]":              Function(define_class),
         "define method [<text>]":                             Function(define_method),
