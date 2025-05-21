@@ -81,6 +81,8 @@ Breathe.add_commands(
         "next tab [<t>]": Key("c-pagedown:%(t)d"),
         "preev tab [<t>]": Key("c-pageup:%(t)d"),
         "close tab [<t>]": Key("c-w:%(t)d"),
+        "left (pain | pane)": Key("c-1"),
+        "right (pain | pane)": Key("c-2"),
 
         "(full-screen | full screen)": Key("cs-x"),
         "(hide | hi | show) sidebar": Key("c-b"),
@@ -88,7 +90,8 @@ Breathe.add_commands(
         "go to editor": Key("csa-`"),
         "go to sidebar": Key("c-0"),
         "go to bottom": Key("c-`"),
-        "sidebar file": Key("cs-\\"),
+        "sidebar file": Key("cs-e"),
+        "sidebar get": Key("cs-g") + Key("g"),
 
         # Code
         "format file": Key("as-f"),
