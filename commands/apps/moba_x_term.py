@@ -1,7 +1,7 @@
 from commands.imports import *
 
 def tail_app_log(n=None):
-    if n > 1:
+    if n and n > 1:
         Text("tail -" + str(n) + " ./cdd_peptide_reg_app.log").execute()
         Key("enter").execute()
     else:
