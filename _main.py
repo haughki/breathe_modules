@@ -7,6 +7,7 @@ modules = {
     "commands": {
         "apps": [
             "bash_common",
+            "cursor",
             "chrome",
             "intellij",
             "powershell",

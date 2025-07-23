@@ -19,6 +19,7 @@ Breathe.add_commands(
         "direct logs dev": Text("cd /apps/user/cdd/dev/log/cdd_peptide_reg") + Key("enter"),
         "direct data loader files dev": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/dev/data_loader_files") + Key("enter"),
         "direct extra dev": Text("cd /gstore/data/smdd/cdd/dev/cdd_peptide_reg") + Key("enter"),
+        "direct (aestel | Aestel) dev": Text("cd /apps/user/cdd/dev/Aestel/config/dataLoader/partner_data/genentech/peptide") + Key("enter"),
         "activate conda dev": Text("conda activate app_cdd_peptide_reg_dev") + Key("enter"),
         "restart registration dev": Text("sudo supervisorctl restart cdd_peptide_reg:"),
         "stop registration dev": Text("sudo supervisorctl stop cdd_peptide_reg:"),
@@ -31,6 +32,7 @@ Breathe.add_commands(
         "direct logs prod": Text("cd /apps/user/cdd/prd/log/cdd_peptide_reg") + Key("enter"),
         "direct data loader files prod": Text("cd /gstore/scratch/smdd/app_cdd_peptide_reg/prd/data_loader_files") + Key("enter"),
         "direct extra prod": Text("cd /gstore/data/smdd/cdd/prd/cdd_peptide_reg") + Key("enter"),
+        "direct (aestel | Aestel) prod": Text("cd /apps/user/cdd/prd/Aestel/config/dataLoader/partner_data/genentech/peptide") + Key("enter"),
         "activate conda prod": Text("conda activate app_cdd_peptide_reg_prd") + Key("enter"),
 
         "tail app log [<n>]": Function(tail_app_log),

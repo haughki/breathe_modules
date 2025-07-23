@@ -2,7 +2,7 @@
 # pydevd_pycharm.settrace('localhost', port=8282, stdoutToServer=True, stderrToServer=True)
 
 
-"""A command module for Dragonfly, for controlling VSCode.
+"""A command module for Dragonfly, for controlling Cursor.
 -----------------------------------------------------------------------------
 Licensed under the LGPL3.
 
@@ -21,7 +21,7 @@ def getFile(text=None):
         open_get_file_dialog.execute()
 
 Breathe.add_commands(
-    context = AppContext(executable='code'),
+    context = AppContext(executable='cursor'),
     mapping = {
         # misc
         "do command": Key("cs-p"),
@@ -47,10 +47,6 @@ Breathe.add_commands(
         "step into": Key("f11"),
         "step out": Key("s-f11"),
         "(keep running | resume)": Key("f9"),
-
-        # Test executiong
-        "current test": Key("ctrl:down") + Key(";") + Key("t") + Key("ctrl:up"),
-        "debug current test": Key("ctrl:down") + Key(";") + Key("d") + Key("ctrl:up"),
 
         # Search.
         "replace": Key("c-r"),
