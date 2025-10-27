@@ -111,6 +111,10 @@ Breathe.add_commands(
         "verbose flag": T(" --verbose"),
         "verbose flag short": T(" -v"),
 
+        # venv
+        "deactivate": T("deactivate\n"),
+        "activate venv": T("/bin/activate\n"),
+
         # tools
         "Conda": T("conda "),
         "get ": T("git "),
