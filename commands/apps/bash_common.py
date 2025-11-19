@@ -101,7 +101,7 @@ Breathe.add_commands(
         "super do": T("sudo "),
         "switch user": T("su "),
         "tail": T("tail "),
-        "tail log": T("tail -f "),
+        "tail file": T("tail -f "),
         "time": T("time "),
         "touch": T("touch "),
         "trash": T("trash "),
@@ -113,7 +113,7 @@ Breathe.add_commands(
 
         # venv
         "deactivate": T("deactivate\n"),
-        "activate venv": T("/bin/activate\n"),
+        "activate virtual": T("/bin/activate\n"),
 
         # tools
         "Conda": T("conda "),

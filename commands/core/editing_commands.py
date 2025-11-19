@@ -268,6 +268,7 @@ Breathe.add_commands(
 
         ### custom vocabulary
         "(bull | T-bull | tex bull | text bull | tex bullet | text bullet)": Text("- "),
+        "CDD peptide": Text("cdd_peptide"),
     },
     extras = [
         IntegerRef("n", 1, 10000, default=1),
