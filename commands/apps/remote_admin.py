@@ -9,7 +9,7 @@ def tail_app_log(n=None):
         Key("enter").execute()
 
 Breathe.add_commands(
-    context = AppContext(executable='MobaXterm'),
+    context = AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
         "pepis super do": Text("sudo -u pepis -s") + Key("enter"),
         "sue doop": Text("sudop") + Key("enter"),
@@ -20,6 +20,7 @@ Breathe.add_commands(
         "direct config dev": Text("cd /apps/user/gRED/cdd/software/dev/conf/server/sc1lvcddwebd01") + Key("enter"),
         "direct logs dev": Text("cd /gpfs/homefs/site/home/pepis/cdd_peptide_reg.resources/dev/log.files") + Key("enter"),
         "direct data loader files dev": Text("cd /gpfs/homefs/site/home/pepis/cdd_peptide_reg.resources/dev/log.files/data_loader_files") + Key("enter"),
+        "direct certs dev": Text("cd /gpfs/homefs/site/home/pepis/.config/ssl/dev") + Key("enter"),
         "activate environment dev": Text("source /apps/user/gRED/cdd/software/venvs/dev/cdd_peptide_reg_dev/bin/activate") + Key("enter"),
         "restart registration dev": Text("supervisorctl restart cdd_peptide_reg:"),
         "stop registration dev": Text("supervisorctl stop cdd_peptide_reg:"),
@@ -29,6 +30,7 @@ Breathe.add_commands(
         "direct config prod": Text("cd /apps/user/gRED/cdd/software/prd/conf/server/sc1lvcddwebp01") + Key("enter"),
         "direct logs prod": Text("cd /gpfs/homefs/site/home/pepis/cdd_peptide_reg.resources/prd/log.files") + Key("enter"),
         "direct data loader files prod": Text("cd /gpfs/homefs/site/home/pepis/cdd_peptide_reg.resources/prd/log.files/data_loader_files") + Key("enter"),
+        "direct certs prod": Text("cd /gpfs/homefs/site/home/pepis/.config/ssl/prd") + Key("enter"),
         "activate environment prod": Text("source /apps/user/gRED/cdd/software/venvs/prd/cdd_peptide_reg_prd/bin/activate") + Key("enter"),
         "restart registration prod": Text("supervisorctl restart cdd_peptide_reg:"),
         "stop registration prod": Text("supervisorctl stop cdd_peptide_reg:"),

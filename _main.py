@@ -13,7 +13,7 @@ modules = {
             "powershell",
             "vscode",
             "wsl",
-            "moba_x_term",
+            "remote_admin",
         ],
         "core": [
             "aliases",

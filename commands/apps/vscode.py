@@ -90,6 +90,7 @@ Breathe.add_commands(
 
         "(full-screen | full screen)": Key("cs-x"),
         "(hide | hi | show) sidebar": Key("c-b"),
+        "(hide | hi | show) chat": Key("ca-b"),
         "(hide | hi | show) bottom": Key("cs-j"),
         "go to editor": Key("csa-`"),
         "go to sidebar": Key("c-0"),

@@ -26,7 +26,7 @@ def printUpDir(w=1):
 
 Breathe.add_commands(
     # mintty is git bash, git for Windows
-    context=AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
+    context = AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
         # project variables
         "CDD registration": Text("cdd_peptide_reg"),

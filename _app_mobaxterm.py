@@ -31,15 +31,6 @@ class MobaXtermMapping(MappingRule):
         "next tab [<t>]": Key("c-tab:%(t)d"),
         "preev tab [<t>]": Key("cs-tab:%(t)d"),
         "close tab [<t>]": Key("ca-q:%(t)d"),
-
-        "Denny triage": Text("cd /usr/share/indeni-knowledge/stable/automation") + Key("enter"),
-        "Ansible logs": Text("cd /usr/share/indeni-services/logs/ansible") + Key("enter"),
-        "Denny knowledge": Text("cd /usr/share/indeni-knowledge") + Key("enter"),
-        "Denny server": Text("cd /usr/share/indeni") + Key("enter"),
-        "Denny collector": Text("cd /usr/share/indeni") + Key("enter"),
-
-        "restart server": Text("sudo res") + Key("enter"),
-        "stop server": Text("sudo res stop") + Key("enter"),
     }
 
     extras = [

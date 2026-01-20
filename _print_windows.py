@@ -13,7 +13,7 @@ class PrintWindowsRule(CompoundRule):
         #windows.sort(key=lambda x: x.executable)
         for window in windows:
             if utils.windowIsValid(window):
-                print("{:7} : {:75} : {}".format(window.handle, window.executable.encode("utf-8"), window.title.encode("utf-8")))
+                print("{:7} : {:75} : {}".format(window.handle, window.executable, window.title))
 
 
 # window.executable.lower()
