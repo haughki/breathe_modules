@@ -29,7 +29,11 @@ Breathe.add_commands(
     context = AppContext(executable='ubuntu') | AppContext(executable='MobaXterm') | AppContext(executable='mintty') | AppContext(executable='WindowsTerminal'),
     mapping = {
         # project variables
-        "CDD registration": Text("cdd_peptide_reg"),
+        "CDD peptide reg": Text("cdd_peptide_reg"),
+        "CDD peptide service": Text("cdd_peptide_ws"),
+        "CDD peptide plus service": Text("cdd_peptide_plus_ws"),
+        "CDD depict service": Text("cdd_depict_ws"),
+        "CDD Pepsi": Text("pepsi_ws"),
 
         # directories
         "direct home": Text("cd ~") + Key("enter"),
